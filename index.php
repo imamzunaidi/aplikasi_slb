@@ -37,7 +37,7 @@ $data_profile = mysqli_fetch_assoc($profile);
                 </div>
                 <!-- layer 2 -->
                 <div class="layer-1-2 wow animate__fadeIn animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-                  <h1 class="title2">Selamat Datang diSEKOLAH LUAR BIASA (SLB) NEGERI CENDONO KUDUS </h1>
+                  <h1 class="title2">Selamat Datang di Sekolah Luar Biasa (SLB) Negeri Cendono Kudus </h1>
                 </div>
                 <!-- layer 3 -->
                 <div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
