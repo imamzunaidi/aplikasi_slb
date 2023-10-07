@@ -1,2 +1,2 @@
-# aplikasi_slb
-SISTEM INFORMASI PERKEMBANGAN BELAJAR ANAK BERKEBUTUHAN KHUSUS PADA SEKOLAH LUAR BIASA (SLB)
+# bank-sampah
+membuat project bank sampah dengan menggunakan php native dan database mysql
