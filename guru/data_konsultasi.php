@@ -41,13 +41,15 @@ $id_users = $_SESSION['id_users'];
                         <th>Konsultasi</th>
                         <th>Status Konsultasi</th>
                         <th>Wali Kelas</th>
+                        <th>Nama Wali</th>
+                        <th>Nama Murid</th>
                         <th class="text-center" width = "20%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $no = 1;?>
                     <?php    
-                            $query = "SELECT * FROM tbl_konsultasi tk INNER JOIN tbl_users tu ON tk.id_users = tu.id_users where tu.id_users = $id_users";
+                            $query = "SELECT * FROM tbl_konsultasi tk INNER JOIN tbl_users tu ON tk.id_users = tu.id_users INNER JOIN tbl_wali_murid twm on twm.id_wali_murid = tk.id_wali_murid INNER JOIN tbl_murid tm on tm.id_murid = twm.id_murid where tu.id_users = $id_users";
                             $result_tasks = mysqli_query($conn, $query);    
                             $no = 1;
                             while($row = mysqli_fetch_assoc($result_tasks)) { ?>
@@ -58,6 +60,8 @@ $id_users = $_SESSION['id_users'];
                             <td><?= $row['konsultasi']?></td>
                             <td><?= $row['status_konsultasi']?></td>
                             <td><?= $row['nama_users']?></td>
+                            <td><?= $row['nama_ayah']?></td>
+                            <td><?= $row['nama']?></td>
                             <?php if ( $row['status_konsultasi'] != 'approve') { ?>
                                 <td class ="text-center"> 
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updatedata<?= $row['id_konsultasi'] ?>">
@@ -81,7 +85,7 @@ $id_users = $_SESSION['id_users'];
 </div>
 
 <?php
-$query = "SELECT * FROM tbl_konsultasi tk INNER JOIN tbl_users tu ON tk.id_users = tu.id_users";
+$query = "SELECT * FROM tbl_konsultasi tk INNER JOIN tbl_users tu ON tk.id_users = tu.id_users INNER JOIN tbl_wali_murid twm on twm.id_wali_murid = tk.id_wali_murid INNER JOIN tbl_murid tm on tm.id_murid = twm.id_murid where tu.id_users = $id_users";
 $result_tasks = mysqli_query($conn, $query);    
 $no = 1;
 while($row = mysqli_fetch_assoc($result_tasks)) { ?>

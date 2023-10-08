@@ -32,7 +32,7 @@ $id_kategori = $_SESSION['id_kategori'];
       <div class="card table-responsive">
         <div class="card-body ">
           
-            <table id="table" class="table table-striped table-hover" cellspacing="0" width="100%">
+          <table id="table" class="table table-striped table-hover" cellspacing="0" width="100%">
                 <thead >
                     <tr >
                         <th width = "5%">No.</th>
@@ -41,13 +41,15 @@ $id_kategori = $_SESSION['id_kategori'];
                         <th>Konsultasi</th>
                         <th>Status Konsultasi</th>
                         <th>Wali Kelas</th>
-                     
+                        <th>Nama Wali</th>
+                        <th>Nama Murid</th>
+                        <th class="text-center" width = "20%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $no = 1;?>
                     <?php    
-                            $query = "SELECT * FROM tbl_konsultasi tk INNER JOIN tbl_users tu ON tk.id_users = tu.id_users";
+                            $query = "SELECT * FROM tbl_konsultasi tk INNER JOIN tbl_users tu ON tk.id_users = tu.id_users INNER JOIN tbl_wali_murid twm on twm.id_wali_murid = tk.id_wali_murid INNER JOIN tbl_murid tm on tm.id_murid = twm.id_murid";
                             $result_tasks = mysqli_query($conn, $query);    
                             $no = 1;
                             while($row = mysqli_fetch_assoc($result_tasks)) { ?>
@@ -58,7 +60,19 @@ $id_kategori = $_SESSION['id_kategori'];
                             <td><?= $row['konsultasi']?></td>
                             <td><?= $row['status_konsultasi']?></td>
                             <td><?= $row['nama_users']?></td>
+                            <td><?= $row['nama_ayah']?></td>
+                            <td><?= $row['nama']?></td>
+                            <?php if ( $row['status_konsultasi'] != 'approve') { ?>
+                                <td class ="text-center"> 
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updatedata<?= $row['id_konsultasi'] ?>">
+                                    <i class="fas fa-edit"></i>
+                                    </button>
+                                    <!-- <a href="<?= $base_url ?>proses_walimurid/data_konsultasi/delete.php?id=<?= $row['id_konsultasi'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a> -->
+                                </td>
                             
+                            <?php }else{ ?>
+                                <td class ="text-center">-</td>
+                            <?php } ?>
                         </tr>
                     <?php } ?>
                     
