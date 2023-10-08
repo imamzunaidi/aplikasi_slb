@@ -12,7 +12,11 @@ error_reporting(0);
  
 $id_users = $_SESSION['id_users'];
 
-$id_kelas = $_GET['id'];
+$query_kelas = "SELECT * FROM tbl_kelas where id_users = $id_users";
+$result_kelas = mysqli_query($conn, $query_kelas);    
+$row_kelas =  mysqli_fetch_assoc($result_kelas);
+
+$id_kelas = $row_kelas['id_kelas'];
 ?>
 <div class="main-content">
   <section class="section">
@@ -64,7 +68,7 @@ $id_kelas = $_GET['id'];
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updatedata<?= $row['id_laporan_belajar'] ?>">
                       <i class="fas fa-edit"></i>
                     </button>
-                    <a href="<?= $base_url ?>proses_admin/laporan_belajar/delete.php?id=<?= $row['id_laporan_belajar'] ?>&id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                    <a href="<?= $base_url ?>proses_guru/laporan_belajar/delete.php?id=<?= $row['id_laporan_belajar'] ?>&id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                   </td>
                 </tr>
               <?php } ?>
@@ -87,7 +91,7 @@ $id_kelas = $_GET['id'];
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= $base_url ?>proses_admin/laporan_belajar/insert.php" method="post" enctype='multipart/form-data'>
+      <form action="<?= $base_url ?>proses_guru/laporan_belajar/insert.php" method="post" enctype='multipart/form-data'>
       <div class="modal-body">
           <div class="form-group">
             <input type="hidden" name = "id_kelas" value = "<?= $id_kelas?>">
@@ -104,12 +108,12 @@ $id_kelas = $_GET['id'];
             </select>
           </div>
           <div class="form-group">
-            <label for="">Nilai</label>
-            <input type="number" name="nilai" id="" class="form-control" required>
-          </div>
-          <div class="form-group">
             <label for="">Keterangan</label>
             <input type="keterangan" name="keterangan" id="" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="">Nilai</label>
+            <input type="number" name="nilai" id="" class="form-control" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -135,7 +139,7 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= $base_url ?>proses_admin/laporan_belajar/update.php" method="post" enctype='multipart/form-data'>
+      <form action="<?= $base_url ?>proses_guru/laporan_belajar/update.php" method="post" enctype='multipart/form-data'>
         <div class="modal-body">
             <input type="hidden" name="id_laporan_belajar" id="" class="form-control" value = "<?= $row['id_laporan_belajar'] ?>">
             <input type="hidden" name = "id_kelas" value = "<?= $id_kelas?>">
@@ -153,8 +157,8 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                 
             </div>
             <div class="form-group">
-            <label for="">Nilai</label>
-            <input type="number" name="nilai" id="" class="form-control" required value = "<?= $row['nilai'] ?>">
+              <label for="">Nilai</label>
+              <input type="number" name="nilai" id="" class="form-control" required value = "<?= $row['nilai'] ?>">
           </div> 
           <div class="form-group">
             <label for="">Keterangan</label>

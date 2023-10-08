@@ -17,11 +17,9 @@ $id_kelas = $_GET['id'];
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1>Data Detail Laporan Belajar</h1>
+      <h1>Data Detail Monitoring</h1>
     </div>
-    <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambahdata">
-      Tambah Data
-    </button>
+   
     <?php if (isset($_SESSION['message'])) { ?>
         <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
         <?= $_SESSION['message']?>
@@ -32,7 +30,9 @@ $id_kelas = $_GET['id'];
     <?php unset($_SESSION['message']); unset($_SESSION['message_type']); } ?>
     <div class="section-body">
       <div class="card table-responsive">
-      
+        <div class="card-header">
+            <h4>Data Monitoring</h4>
+        </div>
         <div class="card-body ">
           
             <table class="table table-hover" id="data_tabel">
@@ -40,32 +40,25 @@ $id_kelas = $_GET['id'];
               <tr>
                 <th>No</th>
                 <th>Nama Murid</th>
-                <th>Nilai</th>
-                <th>Keterangan</th>
+                <th>Perkembangan</th>
                 <th>Tanggal</th>
                 <th>Nama Guru</th>
-                <th class ="text-center">Action</th>
+              
               </tr>
             </thead>
             <tbody>
               <?php    
-                    $query = "SELECT * FROM tbl_laporan_belajar tlb INNER JOIN tbl_murid tm ON tm.id_murid = tlb.id_murid INNER JOIN tbl_users tu on tu.id_users = tlb.id_users";
+                    $query = "SELECT * FROM tbl_monitoring tmt INNER JOIN tbl_murid tm ON tm.id_murid = tmt.id_murid INNER JOIN tbl_users tu on tu.id_users = tmt.id_users";
                     $result_tasks = mysqli_query($conn, $query);    
                     $no = 1;
                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                 <tr>
                   <td><?= $no++ ?></td>
                   <td><?= $row['nama']?></td>
-                  <td><?= $row['nilai']?></td>
-                  <td><?= $row['keterangan']?></td>
-                  <td><?= $row['date_penilaian']?></td>
+                  <td><?= $row['perkembangan']?></td>
+                  <td><?= $row['date_monitoring']?></td>
                   <td><?= $row['nama_users']?></td>
-                  <td class ="text-center"> 
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updatedata<?= $row['id_laporan_belajar'] ?>">
-                      <i class="fas fa-edit"></i>
-                    </button>
-                    <a href="<?= $base_url ?>proses_admin/laporan_belajar/delete.php?id=<?= $row['id_laporan_belajar'] ?>&id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
-                  </td>
+                 
                 </tr>
               <?php } ?>
             </tbody>
@@ -87,7 +80,7 @@ $id_kelas = $_GET['id'];
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= $base_url ?>proses_admin/laporan_belajar/insert.php" method="post" enctype='multipart/form-data'>
+      <form action="<?= $base_url ?>proses_admin/data_monitoring/insert.php" method="post" enctype='multipart/form-data'>
       <div class="modal-body">
           <div class="form-group">
             <input type="hidden" name = "id_kelas" value = "<?= $id_kelas?>">
@@ -104,12 +97,8 @@ $id_kelas = $_GET['id'];
             </select>
           </div>
           <div class="form-group">
-            <label for="">Nilai</label>
-            <input type="number" name="nilai" id="" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="">Keterangan</label>
-            <input type="keterangan" name="keterangan" id="" class="form-control" required>
+            <label for="">Perkembangan</label>
+            <input type="text" name="perkembangan" id="" class="form-control" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -122,11 +111,11 @@ $id_kelas = $_GET['id'];
 </div>
 
 <?php    
- $query = "SELECT * FROM tbl_laporan_belajar tlb INNER JOIN tbl_murid tm ON tm.id_murid = tlb.id_murid INNER JOIN tbl_users tu on tu.id_users = tlb.id_users";
+$query = "SELECT * FROM tbl_monitoring tmt INNER JOIN tbl_murid tm ON tm.id_murid = tmt.id_murid INNER JOIN tbl_users tu on tu.id_users = tmt.id_users";
 $result_tasks = mysqli_query($conn, $query);    
 $no = 1;
 while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-<div class="modal fade" id="updatedata<?= $row['id_laporan_belajar']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updatedata<?= $row['id_monitoring']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -135,9 +124,9 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= $base_url ?>proses_admin/laporan_belajar/update.php" method="post" enctype='multipart/form-data'>
+      <form action="<?= $base_url ?>proses_admin/data_monitoring/update.php" method="post" enctype='multipart/form-data'>
         <div class="modal-body">
-            <input type="hidden" name="id_laporan_belajar" id="" class="form-control" value = "<?= $row['id_laporan_belajar'] ?>">
+            <input type="hidden" name="id_monitoring" id="" class="form-control" value = "<?= $row['id_monitoring'] ?>">
             <input type="hidden" name = "id_kelas" value = "<?= $id_kelas?>">
             <div class="form-group">
                 <label for="">Nama Murid</label>
@@ -153,13 +142,9 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                 
             </div>
             <div class="form-group">
-            <label for="">Nilai</label>
-            <input type="number" name="nilai" id="" class="form-control" required value = "<?= $row['nilai'] ?>">
+            <label for="">Perkembangan</label>
+            <input type="text" name="perkembangan" id="" class="form-control" required value = "<?= $row['perkembangan'] ?>">
           </div> 
-          <div class="form-group">
-            <label for="">Keterangan</label>
-            <input type="keterangan" name="keterangan" id="" class="form-control" required value = "<?= $row['keterangan'] ?>">
-          </div>
         </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

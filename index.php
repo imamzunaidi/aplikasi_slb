@@ -20,9 +20,9 @@ $data_profile = mysqli_fetch_assoc($profile);
  <div id="home" class="slider-area">
     <div class="bend niceties preview-2">
       <div id="ensign-nivoslider" class="slides">
-        <img src="<?= $base_url?>assets_wali/img/slider/banner1.jpeg" alt="" title="#slider-direction-1" />
-        <img src="<?= $base_url?>assets_wali/img/slider/banner2.jpeg" alt="" title="#slider-direction-2" />
-        <img src="<?= $base_url?>assets_wali/img/slider/banner1.jpeg" alt="" title="#slider-direction-3" />
+        <img src="<?= $base_url?>assets_wali/img/slider/testing.jpeg" alt="" title="#slider-direction-1" />
+        <img src="<?= $base_url?>assets_wali/img/slider/gambar.jpg" alt="" title="#slider-direction-2" />
+        <img src="<?= $base_url?>assets_wali/img/slider/gambar.jpg" alt="" title="#slider-direction-3" />
       </div>
 
       <!-- direction 1 -->

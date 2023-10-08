@@ -31,7 +31,7 @@ $id_users = $_SESSION['id_users'];
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                     <div class="card-icon bg-primary">
-                        <a href="<?= $base_url ?>kepala_sekolah/data_guru.php">
+                        <a href="">
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="card-wrap">
@@ -51,7 +51,7 @@ $id_users = $_SESSION['id_users'];
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
-                        <a href="<?= $base_url ?>kepala_sekolah/data_murid.php">
+                        <a href="">
                         <i class="fas fa-user-friends"></i>
                     </div>
                     <div class="card-wrap">
@@ -71,7 +71,7 @@ $id_users = $_SESSION['id_users'];
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                     <div class="card-icon bg-warning">
-                        <a href="<?= $base_url ?>kepala_sekolah/data_konsultasi.php">
+                        <a href="<?= $base_url ?>guru/data_konsultasi.php">
                         <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="card-wrap">
@@ -79,7 +79,7 @@ $id_users = $_SESSION['id_users'];
                         <h4>Jumlah Konsultasi</h4>
                         </div>
                         <?php 
-                        $query_jumlah = "SELECT * FROM tbl_konsultasi";
+                        $query_jumlah = "SELECT * FROM tbl_konsultasi where id_users = $id_users";
                         $result_jumlah = mysqli_query($conn, $query_jumlah);
                         $jumlah = mysqli_num_rows($result_jumlah); ?>
                         <div class="card-body">
@@ -91,7 +91,7 @@ $id_users = $_SESSION['id_users'];
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                     <div class="card-icon bg-success">
-                        <a href="<?= $base_url ?>kepala_sekolah/data_monitoring.php">
+                        <a href="<?= $base_url ?>guru/data_monitoring.php">
                         <i class="fas fa-bookmark"></i>
                     </div>
                     <div class="card-wrap">
@@ -99,7 +99,7 @@ $id_users = $_SESSION['id_users'];
                         <h4>Jumlah Monitoring</h4>
                         </div>
                         <?php 
-                        $query_jumlah = "SELECT * FROM tbl_monitoring";
+                        $query_jumlah = "SELECT * FROM tbl_monitoring where id_users = $id_users";
                         $result_jumlah = mysqli_query($conn, $query_jumlah);
                         $jumlah = mysqli_num_rows($result_jumlah); ?>
                         <div class="card-body">

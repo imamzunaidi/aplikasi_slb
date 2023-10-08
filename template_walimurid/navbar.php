@@ -24,20 +24,19 @@ $nama_ayah = $_SESSION['nama_ayah'];
       <nav class="nav-menu d-none d-lg-block">
       <ul>
           <li class="active"><a href="<?= $base_url ?>">Home</a></li>
-          <!-- <li><a href="<?= $base_url ?>#about">About</a></li> -->
-          <li><a href="<?= $base_url ?>#services">Instruction</a></li>
-          <li><a href="<?= $base_url?>walimurid/konsultasi.php">Konsultasi</a></li>
-          <li><a href="<?= $base_url?>walimurid/monitoring.php">Monitoring</a></li>
+          <!-- <li><a href="<?= $base_url ?>#services">Instruction</a></li> -->
           <li><a href="<?= $base_url ?>#portfolio">Gallery</a></li>
           <li><a href="<?= $base_url ?>#blog">Information</a></li>
-          <!-- <li><a href="<?= $base_url ?>#hasil">Hasil</a></li> -->
           <li><a href="<?= $base_url ?>#contact">Contact</a></li>
+          <li><a href="<?= $base_url?>walimurid/konsultasi.php">Konsultasi</a></li>
+          <li><a href="<?= $base_url?>walimurid/monitoring.php">Monitoring</a></li>
+          <li><a href="<?= $base_url?>walimurid/laporan.php">Laporan</a></li>
           <?php if( $id_wali_murid  == ''){?>
             <li><a href="<?= $base_url?>walimurid/login.php">Login</a></li>
           <?php }else{ ?>
             <li class="drop-down"><a href="#"><?= $nama_ayah?></a>
               <ul>
-                <li><a href="<?= $base_url ?>admin/profile.php">Profile</a></li>
+                <li><a href="<?= $base_url ?>walimurid/profile.php">Profile</a></li>
                 <li><a href="<?= $base_url?>auth/logout.php">Logout</a></li>
               </ul>
             </li>

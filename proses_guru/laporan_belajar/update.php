@@ -17,10 +17,10 @@ if (isset($_POST['update'])) {
     if(!$result) {
         die("Query Failed.");
     }
-    
+
     $_SESSION['message'] = 'Update Data Successfully';
     $_SESSION['message_type'] = 'success';
-    header('Location: '.$base_url.'admin/data_detail_laporan_belajar.php?id='.$id_kelas);
+    header('Location: '.$base_url.'guru/laporan_belajar.php');
 
 }
 
