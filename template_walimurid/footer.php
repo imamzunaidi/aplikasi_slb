@@ -34,7 +34,7 @@
                 Sistem Informasi Perkembangan Belajar Anak Berkebutuhan Khusus Pada Sekolah Luar Biasa (SLB) Negeri Cendono Kudus Menggunakan Metode User Centered Design (UCD) Berbasis Web
                 </p>
                 <div class="footer-contacts">
-                  <p><span>Alamat</span> Jl. KH. Ahmad Dahlan No.90, Kp. Melayu, Kec. Sukajadi, Kota Pekanbaru, Riau 28122 </p>
+                  <p><span>Alamat</span> Jl. Madu No. 1, Cendono, Dawe, Kab. Kudus </p>
                   <p><span>Jam Kerja:</span> 07.00 - 15.00</p>
                 </div>
               </div>

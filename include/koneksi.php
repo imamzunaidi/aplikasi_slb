@@ -12,7 +12,7 @@ $conn = mysqli_connect(
   'root',
   '',
   'db_aplikasi_slb'
-) or die(mysqli_erro($mysqli));
+) or die(mysqli_error($mysqli));
 
 
 

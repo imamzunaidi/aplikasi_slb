@@ -49,7 +49,7 @@ $id_users = $_SESSION['id_users'];
                     <div class="col-md-8">
                         <div class="form-group">
                             <label for="">Nama Sekolah</label>
-                            <input type="hidden" name = "kd_profile_sekolah" value = "1">
+                            <input type="hidden" name = "id_profile_sekolah" value = "1">
                             <input type="text" name ="nama_sekolah" class = "form-control" value = "<?= $row['nama_sekolah']?>" required>
                         </div>
                         <div class="form-group">

@@ -25,8 +25,8 @@ $id_wali_murid = $_SESSION['id_wali_murid'];
 </style>
 
 <?php 
-$kd_informasi = $_GET['id'];
-$query = "SELECT * FROM tbl_informasi where kd_informasi = $kd_informasi";
+$id_informasi = $_GET['id'];
+$query = "SELECT * FROM tbl_informasi where id_informasi = $id_informasi";
 $result_tasks = mysqli_query($conn, $query);    
 $no = 1;
 $row =  mysqli_fetch_assoc($result_tasks) ?>

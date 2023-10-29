@@ -41,8 +41,7 @@ $data_profile = mysqli_fetch_assoc($profile);
                 </div>
                 <!-- layer 3 -->
                 <div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-                  <a class="ready-btn right-btn page-scroll" href="<?= $base_url?>">Login</a>
-                  <a class="ready-btn page-scroll" href="#contact">Contact us</a>
+      
                 </div>
               </div>
             </div>
@@ -66,8 +65,7 @@ $data_profile = mysqli_fetch_assoc($profile);
                 </div>
                 <!-- layer 3 -->
                 <div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-                  <a class="ready-btn right-btn page-scroll" href="">Daftar</a>
-                  <a class="ready-btn page-scroll" href="#contact">Contact us</a>
+          
                 </div>
               </div>
             </div>
@@ -91,8 +89,7 @@ $data_profile = mysqli_fetch_assoc($profile);
                 </div>
                 <!-- layer 3 -->
                 <div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-                    <a class="ready-btn right-btn page-scroll" href="">Daftar</a>
-                    <a class="ready-btn page-scroll" href="#contact">Contact us</a>
+                  
                 </div>
               </div>
             </div>
@@ -266,7 +263,7 @@ $data_profile = mysqli_fetch_assoc($profile);
                     </p>
                   </div>
                   <span>
-                    <a href="<?= $base_url ?>walimurid/detail_informasi.php?id=<?= $row['kd_informasi']?>" class="ready-btn">Read more</a>
+                    <a href="<?= $base_url ?>walimurid/detail_informasi.php?id=<?= $row['id_informasi']?>" class="ready-btn">Read more</a>
                   </span>
                 </div>
               </div>
@@ -352,36 +349,7 @@ $data_profile = mysqli_fetch_assoc($profile);
             </div>
             <!-- End Google Map -->
 
-            <!-- Start  contact -->
-            <div class="col-md-6 col-sm-6 col-xs-12">
-           
-              <div class="form contact-form">
-                <form action="<?= $base_url?>home/insert_pesan" method="POST">
-                  <div class="form-group">
-                    <input type="text" name="nama" class="form-control"  placeholder="Your Name"/>
-                    <div class="validate"></div>
-                  </div>
-                  <div class="form-group">
-                    <input type="email" class="form-control" name="email"  placeholder="Your Email"  />
-                    <div class="validate"></div>
-                  </div>
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="subyek"  placeholder="Subject" />
-                    <div class="validate"></div>
-                  </div>
-                  <div class="form-group">
-                    <textarea class="form-control" name="pesan" rows="5" data-rule="required" placeholder="Message"></textarea>
-                    <div class="validate"></div>
-                  </div>
-                  <div class="text-center"><button type="submit" class = "btn btn-primary">Send Message</button></div>
-                </form>
-              </div>
-            </div>
-            <!-- End Left contact -->
-          </div>
-        </div>
-      </div>
-    </div><!-- End Contact Section -->
+         
 
   </main><!-- End #main -->
 

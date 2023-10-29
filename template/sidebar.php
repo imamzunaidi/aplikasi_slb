@@ -73,6 +73,7 @@ include("../include/koneksi.php");
                 <li class="nav-item dropdown">
                   <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Data Master</span></a>
                   <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="<?= $base_url ?>admin/data_periode.php">Data Periode</a></li>
                     <li><a class="nav-link" href="<?= $base_url ?>admin/data_kelas.php">Data Kelas</a></li>
                     <li><a class="nav-link" href="<?= $base_url ?>admin/data_kategori.php">Data Kategori</a></li>
                  

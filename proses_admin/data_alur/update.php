@@ -3,7 +3,7 @@
 include('../../include/koneksi.php');
 if (isset($_POST['update'])) {
 
-    $kd_alur = $_POST['kd_alur'];
+    $id_alur = $_POST['id_alur'];
     $judul = $_POST['judul'];
     $deskripsi = $_POST['deskripsi'];
     $gambar = $_FILES['gambar']['name'];
@@ -19,7 +19,7 @@ if (isset($_POST['update'])) {
             move_uploaded_file($file_tmp, '../../assets/img/alur/'.$nama_gambar_baru); 
                 
             // jalankan query UPDATE berdasarkan ID yang produknya kita edit
-            $query  = "UPDATE `tbl_alur` SET `judul`='$judul',`deskripsi`='$deskripsi',`gambar_alur`='$nama_gambar_baru' WHERE `kd_alur`='$kd_alur'";
+            $query  = "UPDATE `tbl_alur` SET `judul`='$judul',`deskripsi`='$deskripsi',`gambar_alur`='$nama_gambar_baru' WHERE `id_alur`='$id_alur'";
             $result = mysqli_query($conn, $query);
             // periska query apakah ada error
             if(!$result){
@@ -39,7 +39,7 @@ if (isset($_POST['update'])) {
             }
     } else {
         // jalankan query UPDATE berdasarkan ID yang produknya kita edit
-        $query  = "UPDATE `tbl_alur` SET `judul`='$judul',`deskripsi`='$deskripsi' WHERE `kd_alur`='$kd_alur'";
+        $query  = "UPDATE `tbl_alur` SET `judul`='$judul',`deskripsi`='$deskripsi' WHERE `id_alur`='$id_alur'";
         $result = mysqli_query($conn, $query);
         // periska query apakah ada error
         if(!$result){

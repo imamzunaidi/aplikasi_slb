@@ -4,15 +4,16 @@ include('../../include/koneksi.php');
 
 if(isset($_GET['id'])) {
   $id = $_GET['id'];
-  $query = "DELETE FROM tbl_galeri WHERE id_galeri = $id";
+
+  $query = "DELETE FROM `tbl_periode` WHERE `id_periode`='$id'";
   $result = mysqli_query($conn, $query);
   if(!$result) {
     die("Query Failed.");
   }
 
-  $_SESSION['message'] = 'Delete Data Galeri Successfully';
+  $_SESSION['message'] = 'Delete Data Successfully';
   $_SESSION['message_type'] = 'danger';
-  header('Location: '.$base_url.'admin/data_galeri.php');
+  header('Location: '.$base_url.'admin/data_periode.php');
 }
 
 ?>

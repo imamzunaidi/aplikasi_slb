@@ -38,13 +38,14 @@ $id_kelas = $_SESSION['id_kelas'];
                 <th>No</th>
                 <th>Nama Kelas</th>
                 <th>Nama Kategori</th>
+                <th>Periode</th>
                 <th>Nama Wali</th>
                 <th class ="text-center">Action</th>
               </tr>
             </thead>
             <tbody>
               <?php    
-                    $query = "SELECT * FROM tbl_kelas tk INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users  where tu.status = 'aktiv'";
+                    $query = "SELECT * FROM tbl_kelas tk INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users INNER JOIN tbl_periode tp on tp.id_periode = tk.id_periode where tu.status = 'aktiv'";
                     $result_tasks = mysqli_query($conn, $query);    
                     $no = 1;
                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
@@ -52,6 +53,7 @@ $id_kelas = $_SESSION['id_kelas'];
                   <td><?= $no++ ?></td>
                   <td><?= $row['nama_kelas']?></td>
                   <td><?= $row['nama_kategori']?></td>
+                  <td><?= $row['periode']?></td>
                   <td><?= $row['nama_users']?></td>
                   <td class ="text-center"> 
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updatedata<?= $row['id_kelas'] ?>">
@@ -101,6 +103,19 @@ $id_kelas = $_SESSION['id_kelas'];
             </select>
           </div>
           <div class="form-group">
+            <label for="">Periode</label>
+            <select name="id_periode" class = "form-control" required id="">
+                <option value="">--Pilih Periode--</option>
+                <?php    
+                    $query = "SELECT * FROM tbl_periode";
+                    $result_tasks = mysqli_query($conn, $query);    
+                    $no = 1;
+                    while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                        <option value="<?= $row['id_periode']?>"><?= $row['periode']?></option>
+                    <?php } ?>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="">Nama Wali Kelas</label>
             <select name="id_users" class = "form-control" required id="">
                 <option value="">--Pilih Wali Kelas--</option>
@@ -125,7 +140,7 @@ $id_kelas = $_SESSION['id_kelas'];
 </div>
 
 <?php
-$query = "SELECT * FROM tbl_kelas tk INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users  where tu.status = 'aktiv'";
+   $query = "SELECT * FROM tbl_kelas tk INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users INNER JOIN tbl_periode tp on tp.id_periode = tk.id_periode where tu.status = 'aktiv'";
 $result_tasks = mysqli_query($conn, $query);    
 $no = 1;
 while($row = mysqli_fetch_assoc($result_tasks)) { ?>
@@ -144,6 +159,18 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
             <div class="form-group">
                 <label for="">Nama Kelas</label>
                 <input type="text" name="nama_kelas" id="" class="form-control" value = "<?= $row['nama_kelas'] ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="">Periode</label>
+                <select name="id_periode" class = "form-control" required id="">
+                    <?php    
+                        $query_periode = "SELECT * FROM tbl_periode";
+                        $result_periode = mysqli_query($conn, $query_periode);    
+                        $no = 1;
+                        while($periode = mysqli_fetch_assoc($result_periode)) { ?>
+                            <option value="<?= $periode['id_periode']?>" <?= $row['id_periode'] == $periode['id_periode'] ? 'selected' : '' ?>><?= $periode['periode']?></option>
+                        <?php } ?>
+                </select>
             </div>
             <div class="form-group">
                 <label for="">Nama Kategori</label>

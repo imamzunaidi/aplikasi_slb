@@ -38,6 +38,7 @@ $id_wali_murid = $_SESSION['id_wali_murid'];
                                 <th>Waktu</th>
                                 <th>Konsultasi</th>
                                 <th>Status Konsultasi</th>
+                                <th>Jawaban</th>
                                 <th>Wali Kelas</th>
                                 <th class="text-center" width = "20%">Action</th>
                             </tr>
@@ -55,6 +56,7 @@ $id_wali_murid = $_SESSION['id_wali_murid'];
                                     <td><?= $row['jam_konsultasi']?></td>
                                     <td><?= $row['konsultasi']?></td>
                                     <td><?= $row['status_konsultasi']?></td>
+                                    <td><?= $row['jawaban_konsultasi']?></td>
                                     <td><?= $row['nama_users']?></td>
                                     <?php if ( $row['status_konsultasi'] != 'approve') { ?>
                                         <td class ="text-center"> 
@@ -106,7 +108,7 @@ $id_wali_murid = $_SESSION['id_wali_murid'];
             </div>
         </div>
         <div class="form-group">
-            <label for="">Keterangan Konsultasi</label>
+            <label for="">Pertanyaan Konsultasi</label>
             <textarea name="konsultasi" class = "form-control" id="" cols="30" rows="5" required></textarea>
         </div>
     

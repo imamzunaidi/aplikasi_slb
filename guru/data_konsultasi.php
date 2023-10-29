@@ -40,6 +40,7 @@ $id_users = $_SESSION['id_users'];
                         <th>Waktu</th>
                         <th>Konsultasi</th>
                         <th>Status Konsultasi</th>
+                        <th>Jawaban Konsultasi</th>
                         <th>Wali Kelas</th>
                         <th>Nama Wali</th>
                         <th>Nama Murid</th>
@@ -59,6 +60,7 @@ $id_users = $_SESSION['id_users'];
                             <td><?= $row['jam_konsultasi']?></td>
                             <td><?= $row['konsultasi']?></td>
                             <td><?= $row['status_konsultasi']?></td>
+                            <td><?= $row['jawaban_konsultasi']?></td>
                             <td><?= $row['nama_users']?></td>
                             <td><?= $row['nama_ayah']?></td>
                             <td><?= $row['nama']?></td>
@@ -103,11 +105,16 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
             <input type="hidden" name="id_konsultasi" id="" class="form-control" value = "<?= $row['id_konsultasi'] ?>">
             <div class="form-group">
                 <label for="">Status Konsultasi</label>
-                <select name="status_konsultasi" class = "form-control" id="" required>
+                <select name="status_konsultasi" class = "form-control status_konsultasi" id="" required>
                     <option value="">--Pilih Konsultasi--</option>
                     <option value="approve">approve</option>
                     <option value="ditunda">ditunda</option>
                 </select>
+            </div>
+            <input type="hidden" name = "jawaban_konsultasi">
+            <div class="form-group jawaban_konsultasi">
+                <label for="">Jawaban Konsultasi</label>
+                <textarea name="jawaban_konsultasi" class = "form-control " id="" cols="30" rows="10"></textarea>
             </div>
         </div>
           <div class="modal-footer">
@@ -120,4 +127,16 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
 </div>
 <?php } ?>
 
+
+<script>
+  $('.status_konsultasi').on('change', function() {
+    var status = this.value;
+
+    if (status == 'ditunda') {
+        $('.jawaban_konsultasi').hide();
+    }else{
+      $('.jawaban_konsultasi').show();
+    }
+  });
+</script>
 <?php include('../template/footer.php'); ?>

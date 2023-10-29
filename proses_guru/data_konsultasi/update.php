@@ -6,8 +6,9 @@ if (isset($_POST['update'])) {
   
     $id_konsultasi = $_POST['id_konsultasi'];
     $status_konsultasi = $_POST['status_konsultasi'];
+    $jawaban_konsultasi = $_POST['jawaban_konsultasi'];
 
-    $query = "UPDATE `tbl_konsultasi` SET `status_konsultasi`='$status_konsultasi' WHERE id_konsultasi = $id_konsultasi";
+    $query = "UPDATE `tbl_konsultasi` SET `status_konsultasi`='$status_konsultasi', `jawaban_konsultasi`='$jawaban_konsultasi' WHERE id_konsultasi = $id_konsultasi";
     $result = mysqli_query($conn, $query);
     if(!$result) {
         die("Query Failed.");

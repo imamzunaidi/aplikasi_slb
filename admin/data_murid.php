@@ -42,6 +42,7 @@ $id_murid = $_SESSION['id_murid'];
                 <th>TTL</th>
                 <th>Alamat</th>
                 <th>Agama</th>
+                <th>Status Murid</th>
                 <th>Foto</th>
                 <th class ="text-center">Action</th>
               </tr>
@@ -60,6 +61,7 @@ $id_murid = $_SESSION['id_murid'];
                   <td><?= $row['tempat_lahir']?>, <?= $row['tanggal_lahir']?></td>
                   <td><?= $row['alamat']?></td>
                   <td><?= $row['agama']?></td>
+                  <td><?= $row['status_murid']?></td>
                   <td width = "10%" class ="text-center"><img src="<?= $base_url ?>assets/img/murid/<?= $row['gambar']?>" alt="" width ="90%"></td>
                   <td class ="text-center"> 
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updatedata<?= $row['id_murid'] ?>">
@@ -140,6 +142,8 @@ $id_murid = $_SESSION['id_murid'];
             <label for="">Alamat</label>
             <input type="text" name="alamat" id="" class="form-control" required>
           </div>
+
+      
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -215,7 +219,14 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                 <label for="">Gambar</label>
                 <input type="file" name="gambar" id="" class="form-control">
             </div>
-            
+            <div class="form-group">
+              <label for="">Status Murid</label>
+              <select name="status_murid" class = "form-control" required id="">
+                <option value="<?= $row['status_murid']?>"><?= $row['status_murid']?></option>
+                <option value="diterima">diterima</option>
+                <option value="tidak">tidak</option>
+              </select>
+            </div>
         </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

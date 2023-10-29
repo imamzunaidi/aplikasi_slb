@@ -3,7 +3,7 @@
 include('../../include/koneksi.php');
 if (isset($_POST['update'])) {
 
-        $kd_galeri = $_POST['kd_galeri'];
+        $id_galeri = $_POST['id_galeri'];
     
         $gambar = $_FILES['gambar']['name'];
   //cek dulu jika merubah gambar produk jalankan coding ini
@@ -18,7 +18,7 @@ if (isset($_POST['update'])) {
         move_uploaded_file($file_tmp, '../../assets/img/galeri/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
             
         // jalankan query UPDATE berdasarkan ID yang produknya kita edit
-            $query  = "UPDATE `tbl_galeri` SET `galeri_gambar`='$nama_gambar_baru' WHERE kd_galeri = $kd_galeri";
+            $query  = "UPDATE `tbl_galeri` SET `galeri_gambar`='$nama_gambar_baru' WHERE id_galeri = $id_galeri";
             $result = mysqli_query($conn, $query);
         // periska query apakah ada error
             if(!$result){

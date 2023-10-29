@@ -54,10 +54,10 @@ $id_users = $_SESSION['id_users'];
                         <td width = "10%" class ="text-center"><img src="<?= $base_url ?>assets/img/informasi/<?= $row['gambar_informasi']?>" alt="" width ="90%"></td>
                 
                         <td class ="text-center" width = "20%"> 
-                        <button type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#updatedata<?= $row['kd_informasi'] ?>">
+                        <button type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#updatedata<?= $row['id_informasi'] ?>">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <a href="<?= $base_url?>proses_admin/data_informasi/delete.php?id=<?= $row['kd_informasi'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                        <a href="<?= $base_url?>proses_admin/data_informasi/delete.php?id=<?= $row['id_informasi'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 <?php } ?>
@@ -109,7 +109,7 @@ $query = "SELECT * FROM tbl_informasi";
 $result_tasks = mysqli_query($conn, $query);    
 $no = 1;
 while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-<div class="modal fade" id="updatedata<?= $row['kd_informasi']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updatedata<?= $row['id_informasi']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -120,7 +120,7 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
       </div>
       <form action="<?= $base_url ?>proses_admin/data_informasi/update.php" method="post" enctype='multipart/form-data'>
         <div class="modal-body">
-            <input type="hidden" name="kd_informasi" id="" class="form-control" value = "<?= $row['kd_informasi'] ?>">
+            <input type="hidden" name="id_informasi" id="" class="form-control" value = "<?= $row['id_informasi'] ?>">
             <div class="form-group">
                 <label for="">judul</label>
                 <input type="text" name="judul" id="" class="form-control" required value = "<?= $row['judul']?>">

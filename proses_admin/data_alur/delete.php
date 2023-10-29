@@ -4,7 +4,7 @@ include('../../include/koneksi.php');
 
 if(isset($_GET['id'])) {
   $id = $_GET['id'];
-  $query = "DELETE FROM tbl_alur WHERE kd_alur = $id";
+  $query = "DELETE FROM tbl_alur WHERE id_alur = $id";
   $result = mysqli_query($conn, $query);
   if(!$result) {
     die("Query Failed.");

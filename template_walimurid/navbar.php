@@ -23,8 +23,8 @@ $nama_ayah = $_SESSION['nama_ayah'];
 
       <nav class="nav-menu d-none d-lg-block">
       <ul>
-          <li class="active"><a href="<?= $base_url ?>">Home</a></li>
-          <!-- <li><a href="<?= $base_url ?>#services">Instruction</a></li> -->
+  
+          <li><a href="<?= $base_url ?>walimurid/pendaftaran.php">Pendaftaran</a></li>
           <li><a href="<?= $base_url ?>#portfolio">Gallery</a></li>
           <li><a href="<?= $base_url ?>#blog">Information</a></li>
           <li><a href="<?= $base_url ?>#contact">Contact</a></li>

@@ -46,8 +46,8 @@ $id_users = $_SESSION['id_users'];
                 <div class="card-img-overlay">
                   <!-- <h4 class="card-title">John Doe</h4>
                   <p class="card-text">Some example text some example text. Some example text some example text. Some example text some example text. Some example text some example text.</p> -->
-                  <button data-toggle="modal" data-target="#edit<?=$row['kd_galeri']?>" class = "btn btn-light btn-sm"><i class ="fas fa-edit"></i></button>
-                  <a href="<?= $base_url ?>proses_admin/data_galeri/delete.php?id=<?= $row['kd_galeri'] ?>" class="btn btn-sm btn-primary"><i class = "fas fa-trash"></i></a>
+                  <button data-toggle="modal" data-target="#edit<?=$row['id_galeri']?>" class = "btn btn-light btn-sm"><i class ="fas fa-edit"></i></button>
+                  <a href="<?= $base_url ?>proses_admin/data_galeri/delete.php?id=<?= $row['id_galeri'] ?>" class="btn btn-sm btn-primary"><i class = "fas fa-trash"></i></a>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ $query = "SELECT * FROM tbl_galeri";
 $result_tasks = mysqli_query($conn, $query);    
 $no = 1;
 while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-<div class="modal fade" tabindex="-1" role="dialog" id="edit<?=$row['kd_galeri'] ?>">
+<div class="modal fade" tabindex="-1" role="dialog" id="edit<?=$row['id_galeri'] ?>">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -105,7 +105,7 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
         <form action="<?= $base_url ?>proses_admin/data_galeri/update.php" method = "POST" enctype="multipart/form-data">
           <div class="form-group">
             <label for="">Gambar</label>
-            <input type="hidden" name = "kd_galeri" value = "<?= $row['kd_galeri']?>">
+            <input type="hidden" name = "id_galeri" value = "<?= $row['id_galeri']?>">
             <input type="file" class = "form-control" name = "gambar" id="lihat_gambar">
           </div>
           <!-- <div id="image_demo" class="d-none"></div> -->

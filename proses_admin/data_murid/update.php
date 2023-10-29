@@ -10,6 +10,8 @@ if (isset($_POST['update'])) {
     $tempat_lahir = $_POST['tempat_lahir'];
     $tanggal_lahir = $_POST['tanggal_lahir'];
     $alamat = $_POST['alamat'];
+    $status_murid = $_POST['status_murid'];
+
     $agama = $_POST['agama'];
     $nama = $_POST['nama'];
 
@@ -26,7 +28,7 @@ if (isset($_POST['update'])) {
             move_uploaded_file($file_tmp, '../../assets/img/murid/'.$nama_gambar_baru); 
                 
             // jalankan query UPDATE berdasarkan ID yang produknya kita edit
-            $query  = "UPDATE `tbl_murid` SET `nik`='$nik',`nama`='$nama',`jenis_kelamin`='$jenis_kelamin',`tempat_lahir`='$tempat_lahir',`tanggal_lahir`='$tanggal_lahir',`gambar`='$nama_gambar_baru',`alamat`='$alamat',`agama`='$agama' WHERE id_murid = $id_murid";
+            $query  = "UPDATE `tbl_murid` SET `nik`='$nik',`nama`='$nama',`jenis_kelamin`='$jenis_kelamin',`tempat_lahir`='$tempat_lahir',`tanggal_lahir`='$tanggal_lahir',`gambar`='$nama_gambar_baru',`alamat`='$alamat',`agama`='$agama',`status_murid` = '$status_murid' WHERE id_murid = $id_murid";
             $result = mysqli_query($conn, $query);
             // periska query apakah ada error
             if(!$result){
@@ -46,7 +48,7 @@ if (isset($_POST['update'])) {
             }
     } else {
         // jalankan query UPDATE berdasarkan ID yang produknya kita edit
-        $query  = "UPDATE `tbl_murid` SET `nik`='$nik',`nama`='$nama',`jenis_kelamin`='$jenis_kelamin',`tempat_lahir`='$tempat_lahir',`tanggal_lahir`='$tanggal_lahir',`alamat`='$alamat',`agama`='$agama' WHERE id_murid = $id_murid";
+        $query  = "UPDATE `tbl_murid` SET `nik`='$nik',`nama`='$nama',`jenis_kelamin`='$jenis_kelamin',`tempat_lahir`='$tempat_lahir',`tanggal_lahir`='$tanggal_lahir',`alamat`='$alamat',`agama`='$agama',`status_murid` = '$status_murid' WHERE id_murid = $id_murid";
         $result = mysqli_query($conn, $query);
         // periska query apakah ada error
         if(!$result){
