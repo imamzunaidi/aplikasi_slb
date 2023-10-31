@@ -30,37 +30,121 @@ $id_wali_murid = $_SESSION['id_wali_murid'];
                         </button>
                         </div>
                     <?php unset($_SESSION['message']); unset($_SESSION['message_type']); } ?>
-                    <table class="table table-hover" id="data_tabel">
-                        <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Murid</th>
-                            <th>Nilai</th>
-                            <th>Keterangan</th>
-                            <th>Tanggal</th>
-                            <th>Nama Guru</th>
-                          
-                        </tr>
-                        </thead>
-                        <tbody>
+                    <div class="card">
+                        <div class="card-header">
+                        <h4>Data Siswa</h4>
+                      
+                        </div>
                         <?php    
-                                $query = "SELECT * FROM tbl_laporan_belajar tlb INNER JOIN tbl_murid tm ON tm.id_murid = tlb.id_murid INNER JOIN tbl_users tu on tu.id_users = tlb.id_users INNER JOIN tbl_wali_murid twm on twm.id_murid = tm.id_murid WHERE twm.id_wali_murid = $id_wali_murid";
-                                $result_tasks = mysqli_query($conn, $query);    
-                                $no = 1;
-                                while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-                            <tr>
-                            <td><?= $no++ ?></td>
-                            <td><?= $row['nama']?></td>
-                            <td><?= $row['nilai']?></td>
-                            <td><?= $row['keterangan']?></td>
-                            <td><?= $row['date_penilaian']?></td>
-                            <td><?= $row['nama_users']?></td>
-                            
-                            </tr>
-                        <?php } ?>
-                        </tbody>
-                    </table>
+                        $query = "SELECT * FROM tbl_murid tm INNER JOIN tbl_detail_kelas tdk on tdk.id_murid = tm.id_murid INNER JOIN tbl_kelas tk on tk.id_kelas =tdk.id_kelas INNER JOIN tbl_users tu on tu.id_users = tdk.id_users INNER JOIN tbl_periode tp on tp.id_periode = tk.id_periode INNER JOIN tbl_wali_murid twm on twm.id_murid = tm.id_murid where twm.id_wali_murid = '$id_wali_murid'";
+                        $result_tasks = mysqli_query($conn, $query);    
+                        $no = 1;
+                        $row = mysqli_fetch_assoc($result_tasks);
+                        ?>
+                        <div class="collapse show" id="mycard-collapse">
+                        <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <h6>Nama Peserta Didik</h6>
+                                </div>
+                                <div class="col-md-7">
+                                    <h6> : <?= $row['nama']?></h6>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="col-md-5">
+                                    <h6>Nik</h6>
+                                </div>
+                                <div class="col-md-7">
+                                    <h6> : <?= $row['nik']?></h6>
+                                </div>
+                                
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6>Kelas</h6>
+                                </div>
+                                <div class="col-md-8">
+                                    <h6>: <?= $row['nama_kelas']?></h6>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="col-md-4">
+                                    <h6>Periode</h6>
+                                </div>
+                                <div class="col-md-8">
+                                    <h6>: <?= $row['periode']?></h6>
+                                </div>
+                            </div>
+
+                            </div>
+                        </div>
+                        </div>
+                        <div class="card-footer">
+                        
+                        </div>
+                        </div>
+                    </div>
                 </div>
+                <table class="table table-hover" id="data_tabel">
+                    <thead>
+                    <tr>
+                        <th rowspan = "2">No</th>
+                        <th rowspan = "2">Mata Pelajaran</th>
+                        <th colspan = "3" class = "text-center">Pengetahuan</th>
+                        <th colspan = "3" class = "text-center">Ketrampilan</th>
+                    </tr>
+                    <tr>
+                        <td>Nilai</td>
+                        <td>Predikat</td>
+                        <td>Deskripsi</td>
+                        <td>Nilai</td>
+                        <td>Predikat</td>
+                        <td>Deskripsi</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php    
+                            $query = "SELECT * FROM tbl_laporan_belajar tlb INNER JOIN tbl_murid tm ON tm.id_murid = tlb.id_murid INNER JOIN tbl_users tu on tu.id_users = tlb.id_users INNER JOIN tbl_detail_kelas tdk on tdk.id_murid = tm.id_murid INNER JOIN tbl_kelas tk on tk.id_kelas =tdk.id_kelas INNER JOIN tbl_periode tp on tp.id_periode = tk.id_periode INNER JOIN tbl_mata_pelajaran tmj on tmj.id_mata_pelajaran = tlb.id_mata_pelajaran INNER JOIN tbl_wali_murid twm on twm.id_murid = tm.id_murid where twm.id_wali_murid = '$id_wali_murid'";
+                            $result_tasks = mysqli_query($conn, $query);    
+                            $no = 1;
+                            while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                        <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= $row['mata_pelajaran']?></td>
+                        <td><?= $row['nilai_pengetahuan']?></td>
+                        <td>
+                            <?php 
+                            if ($row['nilai_pengetahuan'] >= 80) { 
+                            echo 'A';
+                            }else if($row['nilai_pengetahuan'] >= 60 and $row['nilai_pengetahuan'] < 80){
+                            echo 'B';
+                            }else{
+                            echo 'C';
+                            } ?>
+                        </td>
+                        <td><?= $row['deskripsi_pengetahuan']?></td>
+                        <td><?= $row['nilai_ketrampilan']?></td>
+                        <td>
+                            <?php 
+                            if ($row['nilai_ketrampilan'] >= 80) { 
+                            echo 'A';
+                            }else if($row['nilai_ketrampilan'] >= 60 and $row['nilai_ketrampilan'] < 80){
+                            echo 'B';
+                            }else{
+                            echo 'C';
+                            } ?>
+                        </td>
+                        <td><?= $row['deskripsi_ketrampilan']?></td>
+                        
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

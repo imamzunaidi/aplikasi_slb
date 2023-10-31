@@ -102,7 +102,7 @@ $id_kelas = $_GET['id_kelas'];
       
         <div class="card-body ">
           
-            <table class="table table-hover" id="data_tabel">
+          <table class="table table-hover" id="data_tabel">
             <thead>
               <tr>
                 <th rowspan = "2">No</th>
@@ -159,7 +159,7 @@ $id_kelas = $_GET['id_kelas'];
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updatedata<?= $row['id_laporan_belajar'] ?>">
                       <i class="fas fa-edit"></i>
                     </button>
-                    <a href="<?= $base_url ?>proses_admin/laporan_belajar/delete.php?id=<?= $row['id_laporan_belajar'] ?>&id_murid=<?= $row['id_murid'] ?>&id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                    <a href="<?= $base_url ?>proses_guru/laporan_belajar/delete.php?id=<?= $row['id_laporan_belajar'] ?>&id_murid=<?= $row['id_murid'] ?>&id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                   </td>
                 </tr>
               <?php } ?>
@@ -182,7 +182,7 @@ $id_kelas = $_GET['id_kelas'];
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= $base_url ?>proses_admin/laporan_belajar/insert.php" method="post" enctype='multipart/form-data'>
+      <form action="<?= $base_url ?>proses_guru/laporan_belajar/insert.php" method="post" enctype='multipart/form-data'>
       <div class="modal-body">
           <div class="form-group">
             <input type="hidden" name = "id_kelas" value = "<?= $id_kelas?>">
@@ -255,7 +255,7 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= $base_url ?>proses_admin/laporan_belajar/update.php" method="post" enctype='multipart/form-data'>
+      <form action="<?= $base_url ?>proses_guru/laporan_belajar/update.php" method="post" enctype='multipart/form-data'>
         <div class="modal-body">
             <input type="hidden" name="id_laporan_belajar" id="" class="form-control" value = "<?= $row['id_laporan_belajar'] ?>">
             <input type="hidden" name = "id_kelas" value = "<?= $id_kelas?>">

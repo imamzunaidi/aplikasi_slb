@@ -12,6 +12,7 @@ error_reporting(0);
  
 $id_users = $_SESSION['id_users'];
 
+$id_kelas = $_GET['id'];
 ?>
 <div class="main-content">
   <section class="section">
@@ -44,7 +45,7 @@ $id_users = $_SESSION['id_users'];
             </thead>
             <tbody>
               <?php    
-                    $query = "SELECT * FROM tbl_detail_kelas tdk INNER JOIN tbl_murid tm ON tm.id_murid = tdk.id_murid INNER JOIN tbl_kelas tk on tdk.id_kelas = tk.id_kelas INNER JOIN tbl_users tu on tu.id_users = tk.id_users where tk.id_users='$id_users'";
+                    $query = "SELECT * FROM tbl_detail_kelas tdk INNER JOIN tbl_murid tm ON tm.id_murid = tdk.id_murid INNER JOIN tbl_kelas tk on tdk.id_kelas = tk.id_kelas INNER JOIN tbl_users tu on tu.id_users = tk.id_users where tdk.id_kelas='$id_kelas'";
                     $result_tasks = mysqli_query($conn, $query);    
                     $no = 1;
                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
@@ -54,7 +55,7 @@ $id_users = $_SESSION['id_users'];
                   <td><?= $row['nama_kelas']?></td>
                   <td><?= $row['nama_users']?></td>
                   <td class ="text-center"> 
-                    <a href="<?= $base_url ?>guru/data_detail_laporan_belajar.php?id=<?= $row['id_murid'] ?>&id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                    <a href="<?= $base_url ?>admin/data_detail_laporan_belajar.php?id=<?= $row['id_murid'] ?>&id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                   </td>
                 </tr>
               <?php } ?>
