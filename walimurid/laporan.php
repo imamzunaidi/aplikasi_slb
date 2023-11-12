@@ -61,6 +61,61 @@ $id_wali_murid = $_SESSION['id_wali_murid'];
                         </tbody>
                     </table>
                 </div>
+                <table class="table table-hover" id="data_tabel">
+                    <thead>
+                    <tr>
+                        <th rowspan = "2">No</th>
+                        <th rowspan = "2">Mata Pelajaran</th>
+                        <th colspan = "3" class = "text-center">Pengetahuan</th>
+                        <th colspan = "3" class = "text-center">Ketrampilan</th>
+                    </tr>
+                    <tr>
+                        <td>Nilai</td>
+                        <td>Predikat</td>
+                        <td>Deskripsi</td>
+                        <td>Nilai</td>
+                        <td>Predikat</td>
+                        <td>Deskripsi</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php    
+                            $query = "SELECT * FROM tbl_laporan_belajar tlb INNER JOIN tbl_murid tm ON tm.id_murid = tlb.id_murid INNER JOIN tbl_users tu on tu.id_users = tlb.id_users INNER JOIN tbl_detail_kelas tdk on tdk.id_murid = tm.id_murid INNER JOIN tbl_kelas tk on tk.id_kelas =tdk.id_kelas INNER JOIN tbl_periode tp on tp.id_periode = tk.id_periode INNER JOIN tbl_mata_pelajaran tmj on tmj.id_mata_pelajaran = tlb.id_mata_pelajaran INNER JOIN tbl_wali_murid twm on twm.id_murid = tm.id_murid where twm.id_wali_murid = '$id_wali_murid'";
+                            $result_tasks = mysqli_query($conn, $query);    
+                            $no = 1;
+                            while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                        <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= $row['mata_pelajaran']?></td>
+                        <td><?= $row['nilai_pengetahuan']?></td>
+                        <td>
+                            <?php 
+                            if ($row['nilai_pengetahuan'] >= 80) { 
+                            echo 'A';
+                            }else if($row['nilai_pengetahuan'] >= 60 and $row['nilai_pengetahuan'] < 80){
+                            echo 'B';
+                            }else{
+                            echo 'C';
+                            } ?>
+                        </td>
+                        <td><?= $row['deskripsi_pengetahuan']?></td>
+                        <td><?= $row['nilai_ketrampilan']?></td>
+                        <td>
+                            <?php 
+                            if ($row['nilai_ketrampilan'] >= 80) { 
+                            echo 'A';
+                            }else if($row['nilai_ketrampilan'] >= 60 and $row['nilai_ketrampilan'] < 80){
+                            echo 'B';
+                            }else{
+                            echo 'C';
+                            } ?>
+                        </td>
+                        <td><?= $row['deskripsi_ketrampilan']?></td>
+                        
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
