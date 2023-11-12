@@ -86,9 +86,9 @@ $id_kelas = $_GET['id_kelas'];
          
         </div>
     </div>
-    <!-- <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambahdata">
+    <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambahdata">
       Tambah Data
-    </button> -->
+    </button>
     <?php if (isset($_SESSION['message'])) { ?>
         <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
         <?= $_SESSION['message']?>
@@ -102,14 +102,14 @@ $id_kelas = $_GET['id_kelas'];
       
         <div class="card-body ">
           
-            <table class="table table-hover" id="data_tabel">
+          <table class="table table-hover" id="data_tabel">
             <thead>
               <tr>
                 <th rowspan = "2">No</th>
                 <th rowspan = "2">Mata Pelajaran</th>
                 <th colspan = "3" class = "text-center">Pengetahuan</th>
                 <th colspan = "3" class = "text-center">Ketrampilan</th>
-                <!-- <th rowspan = "2" class = "text-center">Action</th> -->
+                <th rowspan = "2" class = "text-center">Action</th>
               </tr>
               <tr>
                 <td>Nilai</td>
@@ -155,13 +155,13 @@ $id_kelas = $_GET['id_kelas'];
                   <td><?= $row['deskripsi_ketrampilan']?></td>
                  
                 
-                  <!-- <td class ="text-center"> 
+                  <td class ="text-center"> 
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updatedata<?= $row['id_laporan_belajar'] ?>">
                       <i class="fas fa-edit"></i>
                     </button>
-                    <a href="<?= $base_url ?>proses_admin/laporan_belajar/delete.php?id=<?= $row['id_laporan_belajar'] ?>&id_murid=<?= $row['id_murid'] ?>&id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                    <a href="<?= $base_url ?>proses_guru/laporan_belajar/delete.php?id=<?= $row['id_laporan_belajar'] ?>&id_murid=<?= $row['id_murid'] ?>&id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                   </td>
-                </tr> -->
+                </tr>
               <?php } ?>
             </tbody>
           </table>
@@ -182,7 +182,7 @@ $id_kelas = $_GET['id_kelas'];
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= $base_url ?>proses_admin/laporan_belajar/insert.php" method="post" enctype='multipart/form-data'>
+      <form action="<?= $base_url ?>proses_guru/laporan_belajar/insert.php" method="post" enctype='multipart/form-data'>
       <div class="modal-body">
           <div class="form-group">
             <input type="hidden" name = "id_kelas" value = "<?= $id_kelas?>">
@@ -190,7 +190,7 @@ $id_kelas = $_GET['id_kelas'];
             <select name="id_murid" class = "form-control select2" required id="">
              
                 <?php    
-                    $query = "SELECT * FROM tbl_detail_kelas tdk INNER JOIN tbl_kelas tk on tk.id_kelas = tdk.id_kelas INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users INNER JOIN tbl_murid tm on tm.id_murid = tdk.id_murid where tu.status = 'aktiv' and tm.id_murid = $id_murid";
+                    $query = "SELECT * FROM tbl_detail_kelas tdk INNER JOIN tbl_kelas tk on tk.id_kelas = tdk.id_kelas INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users INNER JOIN tbl_murid tm on tm.id_murid = tdk.id_murid where tu.status = 'aktiv' and tm.id_murid = $id_murid and tk.id_kelas = $id_kelas";
                     $result_tasks = mysqli_query($conn, $query);    
                     $no = 1;
                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
@@ -255,7 +255,7 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= $base_url ?>proses_admin/laporan_belajar/update.php" method="post" enctype='multipart/form-data'>
+      <form action="<?= $base_url ?>proses_guru/laporan_belajar/update.php" method="post" enctype='multipart/form-data'>
         <div class="modal-body">
             <input type="hidden" name="id_laporan_belajar" id="" class="form-control" value = "<?= $row['id_laporan_belajar'] ?>">
             <input type="hidden" name = "id_kelas" value = "<?= $id_kelas?>">

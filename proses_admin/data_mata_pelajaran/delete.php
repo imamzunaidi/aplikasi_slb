@@ -4,10 +4,8 @@ include('../../include/koneksi.php');
 
 if(isset($_GET['id'])) {
   $id = $_GET['id'];
-  $id_kelas = $_GET['id_kelas'];
-  $id_murid = $_GET['id_murid'];
 
-  $query = "DELETE FROM `tbl_laporan_belajar` WHERE `id_laporan_belajar`='$id'";
+  $query = "DELETE FROM `tbl_mata_pelajaran` WHERE `id_mata_pelajaran`='$id'";
   $result = mysqli_query($conn, $query);
   if(!$result) {
     die("Query Failed.");
@@ -15,7 +13,7 @@ if(isset($_GET['id'])) {
 
   $_SESSION['message'] = 'Delete Data Successfully';
   $_SESSION['message_type'] = 'danger';
-  header('Location: '.$base_url.'guru/data_detail_laporan_belajar.php?id='.$id_murid.'&id_kelas='.$id_kelas);
+  header('Location: '.$base_url.'admin/data_mata_pelajaran.php');
 }
 
 ?>

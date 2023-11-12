@@ -1,7 +1,7 @@
 
 <?php 
 include('../include/koneksi.php');
-
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 if ($_SESSION['id_wali_murid'] == NULL) { ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +56,7 @@ if ($_SESSION['id_wali_murid'] == NULL) { ?>
                 <form method="POST" action = "<?= $base_url ?>proses_walimurid/pendaftaran/insert.php" enctype='multipart/form-data'>
                   <div class="row">
                     <div class="form-group col-6">
-                      <label for="frist_name">Nik</label>
+                      <label for="frist_name">NIK</label>
                       <input id="frist_name" type="text" class="form-control" name="nik" autofocus>
                     </div>
                     <div class="form-group col-6">
@@ -156,7 +156,7 @@ if ($_SESSION['id_wali_murid'] == NULL) { ?>
                         <div class="form-group">
                           <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="agree" class="custom-control-input" id="agree">
-                            <label class="custom-control-label" for="agree">I agree with the terms and conditions</label>
+                            <label class="custom-control-label" for="agree">Saya menyetujui semua syarat dan ketentuan</label>
                           </div>
                         </div>
                         <div class="form-group">
@@ -225,7 +225,7 @@ error_reporting(0);
                         <thead >
                             <tr >
                                 <th width = "5%">No.</th>
-                                <th>Nik</th>
+                                <th>NIK</th>
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
                                 <th>TTL</th>

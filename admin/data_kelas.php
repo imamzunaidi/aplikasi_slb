@@ -45,7 +45,7 @@ $id_kelas = $_SESSION['id_kelas'];
             </thead>
             <tbody>
               <?php    
-                    $query = "SELECT * FROM tbl_kelas tk INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users INNER JOIN tbl_periode tp on tp.id_periode = tk.id_periode where tu.status = 'aktiv'";
+                    $query = "SELECT * FROM tbl_kelas tk INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users INNER JOIN tbl_periode tp on tp.id_periode = tk.id_periode ";
                     $result_tasks = mysqli_query($conn, $query);    
                     $no = 1;
                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>

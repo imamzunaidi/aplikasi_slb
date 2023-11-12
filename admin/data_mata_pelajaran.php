@@ -10,12 +10,11 @@ include('../template/sidebar.php');
 
 error_reporting(0);
  
-$id_periode = $_SESSION['id_periode'];
 ?>
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1>Data Periode</h1>
+      <h1>Data Mata Pelajaran</h1>
     </div>
     <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambahdata">
       Tambah Data
@@ -36,24 +35,24 @@ $id_periode = $_SESSION['id_periode'];
             <thead>
               <tr>
                 <th>No</th>
-                <th>Periode</th>
+                <th>Nama Mata Pelajaran</th>
                 <th class ="text-center">Action</th>
               </tr>
             </thead>
             <tbody>
               <?php    
-                    $query = "SELECT * FROM tbl_periode";
+                    $query = "SELECT * FROM tbl_mata_pelajaran";
                     $result_tasks = mysqli_query($conn, $query);    
                     $no = 1;
                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                 <tr>
                   <td><?= $no++ ?></td>
-                  <td><?= $row['periode']?></td>
+                  <td><?= $row['mata_pelajaran']?></td>
                   <td class ="text-center"> 
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updatedata<?= $row['id_periode'] ?>">
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updatedata<?= $row['id_mata_pelajaran'] ?>">
                       <i class="fas fa-edit"></i>
                     </button>
-                    <a href="<?= $base_url ?>proses_admin/data_periode/delete.php?id=<?= $row['id_periode'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                    <a href="<?= $base_url ?>proses_admin/data_mata_pelajaran/delete.php?id=<?= $row['id_mata_pelajaran'] ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                   </td>
                 </tr>
               <?php } ?>
@@ -76,11 +75,11 @@ $id_periode = $_SESSION['id_periode'];
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= $base_url ?>proses_admin/data_periode/insert.php" method="post" enctype='multipart/form-data'>
+      <form action="<?= $base_url ?>proses_admin/data_mata_pelajaran/insert.php" method="post" enctype='multipart/form-data'>
       <div class="modal-body">
           <div class="form-group">
-            <label for="">Periode</label>
-            <input type="text" name="periode" id="" class="form-control" required>
+            <label for="">Nama</label>
+            <input type="text" name="mata_pelajaran" id="" class="form-control" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -93,11 +92,11 @@ $id_periode = $_SESSION['id_periode'];
 </div>
 
 <?php
-$query = "SELECT * FROM tbl_periode";
+$query = "SELECT * FROM tbl_mata_pelajaran";
 $result_tasks = mysqli_query($conn, $query);    
 $no = 1;
 while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-<div class="modal fade" id="updatedata<?= $row['id_periode']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updatedata<?= $row['id_mata_pelajaran']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -106,12 +105,12 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= $base_url ?>proses_admin/data_periode/update.php" method="post" enctype='multipart/form-data'>
+      <form action="<?= $base_url ?>proses_admin/data_mata_pelajaran/update.php" method="post" enctype='multipart/form-data'>
         <div class="modal-body">
-            <input type="hidden" name="id_periode" id="" class="form-control" value = "<?= $row['id_periode'] ?>">
+            <input type="hidden" name="id_mata_pelajaran" id="" class="form-control" value = "<?= $row['id_mata_pelajaran'] ?>">
             <div class="form-group">
-              <label for="">Periode</label>
-              <input type="text" name="periode" id="" class="form-control" value = "<?= $row['periode'] ?>">
+              <label for="">Nama</label>
+              <input type="text" name="mata_pelajaran" id="" class="form-control" value = "<?= $row['mata_pelajaran'] ?>">
             </div>
         </div>
           <div class="modal-footer">
