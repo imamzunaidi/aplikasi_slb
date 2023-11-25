@@ -26,7 +26,7 @@ if (isset($_POST['update'])) {
             move_uploaded_file($file_tmp, '../../assets/img/profile_sekolah/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
                 
             // jalankan query UPDATE berdasarkan ID yang produknya kita edit
-            $query  = "UPDATE `tbl_profile` SET `nama_sekolah`='$nama_sekolah',`deskripsi`='$deskripsi',`visi`='$visi',`misi`='$misi',`no_hp`='$no_hp',`facebook`='$facebook',`email`='$email',`instagram`='$instagram',`id_users`='$id_users',`gambar_sekolah`='$nama_gambar_baru',`alamat`='$alamat' WHERE id_profile_sekolah = 1";
+            $query  = "UPDATE `tbl_profile` SET `nama_sekolah`='$nama_sekolah',`deskripsi`='$deskripsi',`visi`='$visi',`misi`='$misi',`no_hp`='$no_hp',`facebook`='$facebook',`email`='$email',`instagram`='$instagram',`id_users`='$id_users',`gambar_sekolah`='$nama_gambar_baru',`alamat`='$alamat' WHERE kd_profile_sekolah = 1";
             $result = mysqli_query($conn, $query);
             // periska query apakah ada error
             if(!$result){
@@ -46,7 +46,7 @@ if (isset($_POST['update'])) {
             }
     } else {
         // jalankan query UPDATE berdasarkan ID yang produknya kita edit
-        $query  = "UPDATE `tbl_profile` SET `nama_sekolah`='$nama_sekolah',`deskripsi`='$deskripsi',`visi`='$visi',`misi`='$misi',`no_hp`='$no_hp',`facebook`='$facebook',`email`='$email',`instagram`='$instagram',`id_users`='$id_users',`alamat`='$alamat' WHERE id_profile_sekolah = 1";
+        $query  = "UPDATE `tbl_profile` SET `nama_sekolah`='$nama_sekolah',`deskripsi`='$deskripsi',`visi`='$visi',`misi`='$misi',`no_hp`='$no_hp',`facebook`='$facebook',`email`='$email',`instagram`='$instagram',`id_users`='$id_users',`alamat`='$alamat' WHERE kd_profile_sekolah = 1";
         $result = mysqli_query($conn, $query);
         // periska query apakah ada error
         if(!$result){
