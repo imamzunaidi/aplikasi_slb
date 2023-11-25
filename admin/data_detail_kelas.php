@@ -22,6 +22,9 @@ $id_kelas = $_GET['id'];
     <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambahdata">
       Tambah Data
     </button>
+    <button type="button" class="btn btn-warning mb-2" data-toggle="modal" data-target="#KenaikanKelas">
+      Kenaikan Kelas
+    </button>
     <?php if (isset($_SESSION['message'])) { ?>
         <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
         <?= $_SESSION['message']?>
@@ -101,6 +104,51 @@ $id_kelas = $_GET['id'];
                     <?php } ?>
             </select>
             
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name = "insert" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="KenaikanKelas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Kenaikan Kelas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="<?= $base_url ?>proses_admin/data_detail_kelas/kenaikan_kelas.php" method="post" enctype='multipart/form-data'>
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="">Nama Kelas</label>
+            <select name="id_kelas" class = "form-control select2" required id="">
+                <option value="">--Pilih Kelas--</option>
+                <?php    
+                    $query_kelas = "SELECT * FROM tbl_kelas tk INNER JOIN tbl_periode tp ON tp.id_periode = tk.id_periode";
+                    $result_kelas = mysqli_query($conn, $query_kelas);    
+                    $no = 1;
+                    while($row_kelas = mysqli_fetch_assoc($result_kelas)) { ?>
+                        <option value="<?= $row_kelas['id_kelas']?>"><?= $row_kelas['nama_kelas']?> <?= $row_kelas['periode']?></option>
+                    <?php } ?>
+            </select>
+
+            <?php    
+                $query = "SELECT * FROM tbl_detail_kelas tdk INNER JOIN tbl_kelas tk on tk.id_kelas = tdk.id_kelas INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users INNER JOIN tbl_murid tm on tm.id_murid = tdk.id_murid where tu.status = 'aktiv' and tdk.id_kelas = $id_kelas";
+                $result_tasks = mysqli_query($conn, $query);    
+                $no = 1;
+                while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                  <input type="hidden" name = "id_murid[]" value = "<?= $row['id_murid']?>">
+                  
+            <?php } ?>
+        
           </div>
         </div>
         <div class="modal-footer">

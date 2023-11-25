@@ -54,7 +54,7 @@ $id_kelas = $row_kelas['id_kelas'];
             </thead>
             <tbody>
               <?php    
-                    $query = "SELECT * FROM tbl_monitoring tmt INNER JOIN tbl_murid tm ON tm.id_murid = tmt.id_murid INNER JOIN tbl_users tu on tu.id_users = tmt.id_users";
+                    $query = "SELECT * FROM tbl_monitoring tmt INNER JOIN tbl_murid tm ON tm.id_murid = tmt.id_murid INNER JOIN tbl_users tu on tu.id_users = tmt.id_users where tmt.id_users = $id_users";
                     $result_tasks = mysqli_query($conn, $query);    
                     $no = 1;
                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
@@ -97,9 +97,9 @@ $id_kelas = $row_kelas['id_kelas'];
             <input type="hidden" name = "id_kelas" value = "<?= $id_kelas?>">
             <label for="">Nama Murid</label>
             <select name="id_murid" class = "form-control select2" required id="">
-                <option value="">--Pilih Murid--</option>
+                <option value="">--Pilih Murid-- </option>
                 <?php    
-                    $query = "SELECT * FROM tbl_detail_kelas tdk INNER JOIN tbl_kelas tk on tk.id_kelas = tdk.id_kelas INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users INNER JOIN tbl_murid tm on tm.id_murid = tdk.id_murid where tu.status = 'aktiv' and tdk.id_kelas = $id_kelas";
+                    $query = "SELECT * FROM tbl_detail_kelas tdk INNER JOIN tbl_kelas tk on tk.id_kelas = tdk.id_kelas INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users INNER JOIN tbl_murid tm on tm.id_murid = tdk.id_murid";
                     $result_tasks = mysqli_query($conn, $query);    
                     $no = 1;
                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>

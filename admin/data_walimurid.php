@@ -80,7 +80,7 @@ $id_users = $_SESSION['id_users'];
                             </div>
                         </div>
                        <div class="col-md-12 mb-2">
-                       <h6>Data Walid Murid</h6>
+                       <h6>Data Wali Murid</h6>
                        </div>
                         <div class="col-md-6">
                             <div class="form-group">

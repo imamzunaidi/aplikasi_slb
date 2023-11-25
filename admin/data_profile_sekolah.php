@@ -58,7 +58,7 @@ $id_users = $_SESSION['id_users'];
                         </div>
                         <div class="form-group">
                             <label for="">Misi</label>
-                            <input type="text" name = "misi" class = "form-control" value = "<?= $row['misi']?>" required>
+                            <textarea name = "misi" class = "form-control" value = "<?= $row['misi']?>" required><?= $row['misi']?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Email</label>

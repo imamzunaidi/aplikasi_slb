@@ -39,7 +39,7 @@ $id_wali_murid = $_SESSION['id_wali_murid'];
                                 <th>Konsultasi</th>
                                 <th>Status Konsultasi</th>
                                 <th>Jawaban</th>
-                                <th>Wali Kelas</th>
+                                <th>Nama Guru</th>
                                 <th class="text-center" width = "20%">Action</th>
                             </tr>
                         </thead>

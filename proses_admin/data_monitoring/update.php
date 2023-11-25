@@ -8,7 +8,6 @@ if (isset($_POST['update'])) {
 
     $id_murid = $_POST['id_murid'];
     $perkembangan = $_POST['perkembangan'];
-
     $id_kelas = $_POST['id_kelas'];
 
     $query = "UPDATE `tbl_monitoring` SET `id_murid`='$id_murid',`perkembangan`='$perkembangan' WHERE id_monitoring = $id_monitoring";

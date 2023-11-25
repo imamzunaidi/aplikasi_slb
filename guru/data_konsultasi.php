@@ -102,7 +102,8 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
       </div>
       <form action="<?= $base_url ?>proses_guru/data_konsultasi/update.php" method="post" enctype='multipart/form-data'>
         <div class="modal-body">
-            <input type="hidden" name="id_konsultasi" id="" class="form-control" value = "<?= $row['id_konsultasi'] ?>">
+          <input type="hidden" name="id_konsultasi" id="" class="form-control" value = "<?= $row['id_konsultasi'] ?>">
+            <input type="hidden" name="id_wali_murid" id="" class="form-control" value = "<?= $row['id_wali_murid'] ?>">
             <div class="form-group">
                 <label for="">Status Konsultasi</label>
                 <select name="status_konsultasi" class = "form-control status_konsultasi" id="" required>

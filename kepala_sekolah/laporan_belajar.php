@@ -35,6 +35,7 @@ $id_kelas = $_SESSION['id_kelas'];
               <tr>
                 <th>No</th>
                 <th>Nama Kelas</th>
+                <th>Periode</th>
                 <th>Nama Kategori</th>
                 <th>Nama Wali</th>
                 <th class ="text-center">Action</th>
@@ -42,17 +43,18 @@ $id_kelas = $_SESSION['id_kelas'];
             </thead>
             <tbody>
               <?php    
-                    $query = "SELECT * FROM tbl_kelas tk INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_users tu on tu.id_users = tk.id_users  where tu.status = 'aktiv'";
+                    $query = "SELECT * FROM tbl_kelas tk INNER JOIN tbl_kategori tkg ON tk.id_kategori = tkg.id_kategori INNER JOIN tbl_periode tp on tp.id_periode = tk.id_periode INNER JOIN tbl_users tu on tu.id_users = tk.id_users  where tu.status = 'aktiv'";
                     $result_tasks = mysqli_query($conn, $query);    
                     $no = 1;
                     while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                 <tr>
                   <td><?= $no++ ?></td>
                   <td><?= $row['nama_kelas']?></td>
+                  <td><?= $row['periode']?></td>
                   <td><?= $row['nama_kategori']?></td>
                   <td><?= $row['nama_users']?></td>
                   <td class ="text-center"> 
-                    <a href="<?= $base_url ?>kepala_sekolah/data_detail_laporan_belajar.php?id=<?= $row['id_kelas'] ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                    <a href="<?= $base_url ?>kepala_sekolah/data_detail_laporan_users.php?id=<?= $row['id_kelas'] ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                   </td>
                 </tr>
               <?php } ?>

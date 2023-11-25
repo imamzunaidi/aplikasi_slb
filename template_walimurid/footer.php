@@ -25,22 +25,7 @@
               </div>
             </div>
           </div>
-          <!-- end single footer -->
-          <div class="col-md-8 col-sm-8 col-xs-12">
-            <div class="footer-content">
-              <div class="footer-head">
-                <h4>information</h4>
-                <p>
-                Sistem Informasi Perkembangan Belajar Anak Berkebutuhan Khusus Pada Sekolah Luar Biasa (SLB) Negeri Cendono Kudus Menggunakan Metode User Centered Design (UCD) Berbasis Web
-                </p>
-                <div class="footer-contacts">
-                  <p><span>Alamat</span> Jl. Madu No. 1, Cendono, Dawe, Kab. Kudus </p>
-                  <p><span>Jam Kerja:</span> 07.00 - 15.00</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end single footer -->
+        
       
         </div>
       </div>

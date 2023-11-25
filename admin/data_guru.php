@@ -40,7 +40,7 @@ $id_users = $_SESSION['id_users'];
                 <th>Username</th>
                 <th>No Telepon</th>
                 <th>Email</th>
-                <th>alamat_users</th>
+                <th>Alamat</th>
                 <th class ="text-center">Action</th>
               </tr>
             </thead>

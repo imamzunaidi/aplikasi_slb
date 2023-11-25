@@ -10,7 +10,7 @@ if(isset($_GET['id'])) {
     die("Query Failed.");
   }
 
-  $_SESSION['message'] = 'Delete Data Galeri Successfully';
+  $_SESSION['message'] = 'Gambar Berhasil Dihapus';
   $_SESSION['message_type'] = 'danger';
   header('Location: '.$base_url.'admin/data_galeri.php');
 }

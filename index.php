@@ -13,6 +13,8 @@ $query = "SELECT * FROM tbl_profile";
 $profile = mysqli_query($conn, $query);  
 $data_profile = mysqli_fetch_assoc($profile);  
 
+$id_wali_murid = $_SESSION['id_wali_murid'];
+
 
 ?>
 
@@ -41,7 +43,11 @@ $data_profile = mysqli_fetch_assoc($profile);
                 </div>
                 <!-- layer 3 -->
                 <div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-      
+                  <?php if( $id_wali_murid  == ''){?>
+                 
+                  <?php }else{ ?>
+                    <a class="ready-btn right-btn page-scroll" data-toggle="modal" data-target="#myModal" href="#services">Isi Quisioner</a>
+                  <?php }?>
                 </div>
               </div>
             </div>
@@ -65,7 +71,11 @@ $data_profile = mysqli_fetch_assoc($profile);
                 </div>
                 <!-- layer 3 -->
                 <div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-          
+                  <?php if( $id_wali_murid  == ''){?>
+                 
+                  <?php }else{ ?>
+                    <a class="ready-btn right-btn page-scroll" data-toggle="modal" data-target="#myModal" href="#services">Isi Quisioner</a>
+                  <?php }?>
                 </div>
               </div>
             </div>
@@ -89,7 +99,11 @@ $data_profile = mysqli_fetch_assoc($profile);
                 </div>
                 <!-- layer 3 -->
                 <div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-                  
+                  <?php if( $id_wali_murid  == ''){?>
+                 
+                  <?php }else{ ?>
+                    <a class="ready-btn right-btn page-scroll" data-toggle="modal" data-target="#myModal" href="#services">Isi Quisioner</a>
+                  <?php }?>
                 </div>
               </div>
             </div>
@@ -131,6 +145,14 @@ $data_profile = mysqli_fetch_assoc($profile);
                 </a>
                 <p>
                     <?= $data_profile['deskripsi']?>
+                </p>
+                <h4 class="sec-head">Visi</h4>
+                <p>
+                  <?=$data_profile['visi']?>
+                </p>
+                <h4 class="sec-head">Misi</h4>
+                <p>
+                  <?=$data_profile['misi']?>
                 </p>
                 <ul>
 
@@ -347,12 +369,186 @@ $data_profile = mysqli_fetch_assoc($profile);
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126793.21272542517!2d110.78074555689334!3d-6.734689099032863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70da49ade9b15b%3A0xec9dd8b53ffdb5b3!2sSLB%20Negeri%20Cendono%20Kudus!5e0!3m2!1sen!2sid!4v1696773166016!5m2!1sen!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               <!-- End Map -->
             </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="well-middle">
+              <div class="single-well">
+                <h4>Information</h4>
+                <p>
+                Aplikasi SLB Negeri Cendono Kudus
+                </p>
+                <div class="single-well">
+                  <p><span>Alamat</span> Jl. Madu No 01 RT 05 RW 01 , Cendono, Kec. Dawe, Kab. Kudus Prov. Jawa Tengah</p>
+                  <p><span>Jam Kerja:</span> 07.00 - 15.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
             <!-- End Google Map -->
 
          
 
   </main><!-- End #main -->
 
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Isi Quisioner</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <form action="<?= $base_url ?>proses_walimurid/quisioner/insert.php" method="post" enctype='multipart/form-data'>
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="">Apakah sistem monitoring sangat berguna untuk memantau perkembangan belajar ABK?</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q1" value = "5">Sangat Setuju
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q1" value = "4">Setuju
+              </label>
+            </div>
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q1" value = "3">Netral
+              </label>
+            </div>  
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q1" value = "2">Tidak Setuju
+              </label>
+            </div>  
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q1" value = "1">Sangat Tidak Setuju
+              </label>
+            </div>  
+            <br>
+            <label for="">Apakah sistem ini membantu memberikan informasi mengenai SLB N Cendono?</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q2" value = "5">Sangat Setuju
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q2" value = "4">Setuju
+              </label>
+            </div>
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q2" value = "3">Netral
+              </label>
+            </div>  
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q2" value = "2">Tidak Setuju
+              </label>
+            </div>  
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q2" value = "1">Sangat Tidak Setuju
+              </label>
+            </div> 
+            <br>
+            <label for="">Bagaimana dengan desain dari sistemnya apakah mudah dipahami?</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q3" value = "5">Sangat Setuju
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q3" value = "4">Setuju
+              </label>
+            </div>
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q3" value = "3">Netral
+              </label>
+            </div>  
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q3" value = "2">Tidak Setuju
+              </label>
+            </div>  
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q3" value = "1">Sangat Tidak Setuju
+              </label>
+            </div>  
+            <br>
+            <label for="">Seberapa setuju mengenai pentingnya konsultasi pada sistem?</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q4" value = "5">Sangat Setuju
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q4" value = "4">Setuju
+              </label>
+            </div>
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q4" value = "3">Netral
+              </label>
+            </div>  
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q4" value = "2">Tidak Setuju
+              </label>
+            </div>  
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q4" value = "1">Sangat Tidak Setuju
+              </label>
+            </div>  
+            <br>
+            <label for="">Bagaimana penerapan sistem ini pada SLB apakah sangat membantu?</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q5" value = "5">Sangat Setuju
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q5" value = "4">Setuju
+              </label>
+            </div>
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q5" value = "3">Netral
+              </label>
+            </div>  
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q5" value = "2">Tidak Setuju
+              </label>
+            </div>  
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="q5" value = "1">Sangat Tidak Setuju
+              </label>
+            </div>  
+          </div>
+           
+      
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         <button type="submit" name = "insert" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+
+      </div>
+    </div>
+  </div>
   <?php include('template_walimurid/script.php'); ?>
   <?php include('template_walimurid/footer.php'); ?>
 

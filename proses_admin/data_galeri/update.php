@@ -25,7 +25,7 @@ if (isset($_POST['update'])) {
                 die ("Query gagal dijalankan: ".mysqli_errno($conn).
                         " - ".mysqli_error($conn));
             } else {
-                $_SESSION['message'] = 'Update Data nasabah Successfully';
+                $_SESSION['message'] = 'Berhasil Update Gambar';
                 $_SESSION['message_type'] = 'success';
                 header('Location: '.$base_url.'admin/data_galeri.php');
                 

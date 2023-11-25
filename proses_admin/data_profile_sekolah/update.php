@@ -33,7 +33,7 @@ if (isset($_POST['update'])) {
                 die ("Query gagal dijalankan: ".mysqli_errno($conn).
                         " - ".mysqli_error($conn));
             } else {
-                $_SESSION['message'] = 'Update Data Successfully';
+                $_SESSION['message'] = 'Update Data Berhasil';
                 $_SESSION['message_type'] = 'success';
                 header('Location: '.$base_url.'admin/data_profile_sekolah.php');
               

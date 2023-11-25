@@ -4,48 +4,56 @@
 include('../../include/koneksi.php');
 
 
- 
-if (isset($_SESSION['id_users']) == "") {
-    header('Location: '.$base_url.'');
-}
-
 if (isset($_POST['insert'])) {
+  $id_murid = $_POST['id_murid'];
+  $perkembangan = $_POST['perkembangan'];
+  $id_users = $_SESSION['id_users'];
+  $id_kelas = $_POST['id_kelas'];
 
-    $judul = $_POST['judul'];
-    $deskripsi = $_POST['deskripsi'];
-    $gambar = $_FILES['gambar']['name'];
+  $query_wali_murid = "SELECT * FROM tbl_wali_murid twm INNER JOIN tbl_murid tm on tm.id_murid = twm.id_murid where twm.id_murid = $id_murid";
+  $result_tasks_wali = mysqli_query($conn, $query_wali_murid);    
+  $no = 1;
+  $data_wali =  mysqli_fetch_assoc($result_tasks_wali);
 
-    $ekstensi_diperbolehkan = array('png','jpg','jpeg'); //ekstensi file gambar yang bisa diupload 
-    $x = explode('.', $gambar); //memisahkan nama file dengan ekstensi yang diupload
-    $ekstensi = strtolower(end($x));
-    $file_tmp = $_FILES['gambar']['tmp_name'];   
-    $angka_acak     = rand(1,999);
-    $nama_gambar_baru = $angka_acak.'-'.$gambar; //menggabungkan angka acak dengan nama file sebenarnya
-    if(in_array($ekstensi, $ekstensi_diperbolehkan) === true)  {
-        move_uploaded_file($file_tmp, '../../assets/img/alur/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
-            
-        // jalankan query UPDATE berdasarkan ID yang produknya kita edit
-        $query = "INSERT INTO `tbl_alur`(`judul`, `deskripsi`, `gambar_alur`) VALUES ('$judul','$deskripsi','$nama_gambar_baru')";
-        $result = mysqli_query($conn, $query);
-        // periska query apakah ada error
-        if(!$result){
-            die ("Query gagal dijalankan: ".mysqli_errno($conn).
-                    " - ".mysqli_error($conn));
-        } else {
-            $_SESSION['message'] = 'Insert Data Successfully';
-            $_SESSION['message_type'] = 'success';
-            header('Location: '.$base_url.'admin/data_alur.php');
-        
-        }
-    } else {     
-    //jika file ekstensi tidak jpg dan png maka alert ini yang tampil
-        $_SESSION['message'] = 'Ekstensi gambar yang boleh hanya jpg, jpeg atau png';
-        $_SESSION['message_type'] = 'danger';
-        header('Location: '.$base_url.'admin/data_alur.php');
-    }
+  $token = 'wrj7ZeU5@Ih9vNoC1jf8';
+  $target = $data_wali['no_telp'];
 
-    $_SESSION['message'] = 'Insert Data Successfully';
-    $_SESSION['message_type'] = 'success';
-    header('Location: '.$base_url.'admin/data_alur.php');
+  $curl = curl_init();
+
+  curl_setopt_array($curl, array(
+      CURLOPT_URL => 'https://api.fonnte.com/send',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_POSTFIELDS => array(
+          'target' => $target,
+          'message' => 'Monitoring perkembangan siswa telah dikirim mohon cek website',
+      ),
+      CURLOPT_HTTPHEADER => array(
+          "Authorization: $token"
+      ),
+  ));
+
+  $response = curl_exec($curl);
+
+  curl_close($curl);
+
+
+  $query = "INSERT INTO `tbl_monitoring`(`id_murid`, `perkembangan`, `id_users`) VALUES ('$id_murid','$perkembangan','$id_users')";
+  $result = mysqli_query($conn, $query);
+  if(!$result) {
+    die("Query Failed.");
+  }
+
+  $_SESSION['message'] = 'Insert Data Successfully';
+  $_SESSION['message_type'] = 'success';
+  header('Location: '.$base_url.'guru/data_monitoring.php');
+
 
 }
+
+?>

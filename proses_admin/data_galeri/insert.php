@@ -28,7 +28,7 @@ if (isset($_POST['insert'])) {
             die ("Query gagal dijalankan: ".mysqli_errno($conn).
                     " - ".mysqli_error($conn));
         } else {
-            $_SESSION['message'] = 'Insert Data Nasabah Successfully';
+            $_SESSION['message'] = 'Berhasil Menambahkan Gambar';
             $_SESSION['message_type'] = 'success';
             header('Location: '.$base_url.'admin/data_galeri.php');
         
@@ -40,7 +40,7 @@ if (isset($_POST['insert'])) {
         header('Location: '.$base_url.'admin/data_galeri.php');
     }
 
-    $_SESSION['message'] = 'Insert Data Nasabah Successfully';
+    $_SESSION['message'] = 'Berhasil Menambahkan Gambar';
     $_SESSION['message_type'] = 'success';
     header('Location: '.$base_url.'admin/data_galeri.php');
 

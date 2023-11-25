@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Okt 2023 pada 06.30
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 7.4.33
+-- Generation Time: 14 Nov 2023 pada 10.47
+-- Versi Server: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,7 +33,7 @@ CREATE TABLE `tbl_alur` (
   `judul` varchar(200) NOT NULL,
   `deskripsi` text NOT NULL,
   `gambar_alur` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_alur`
@@ -57,20 +58,14 @@ CREATE TABLE `tbl_detail_kelas` (
   `id_murid` int(11) NOT NULL,
   `id_kelas` int(11) NOT NULL,
   `id_users` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_detail_kelas`
 --
 
 INSERT INTO `tbl_detail_kelas` (`id_detail_kelas`, `id_murid`, `id_kelas`, `id_users`) VALUES
-(6, 3, 3, 1),
-(7, 4, 3, 1),
-(8, 5, 5, 1),
-(10, 6, 5, 1),
-(11, 7, 6, 1),
-(12, 8, 6, 1),
-(13, 9, 6, 1);
+(19, 12, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -81,15 +76,16 @@ INSERT INTO `tbl_detail_kelas` (`id_detail_kelas`, `id_murid`, `id_kelas`, `id_u
 CREATE TABLE `tbl_galeri` (
   `id_galeri` int(11) NOT NULL,
   `galeri_gambar` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_galeri`
 --
 
 INSERT INTO `tbl_galeri` (`id_galeri`, `galeri_gambar`) VALUES
-(15, '797-back.jpg'),
-(16, '889-bc.jpg');
+(17, '388-WhatsApp Image 2023-10-07 at 22.04.36 (1).jpeg'),
+(19, '364-WEB-LIA.jpg'),
+(21, '218-WhatsApp Image 2023-10-07 at 22.04.36.jpeg');
 
 -- --------------------------------------------------------
 
@@ -103,15 +99,16 @@ CREATE TABLE `tbl_informasi` (
   `deskripsi` text NOT NULL,
   `penulis` varchar(100) NOT NULL,
   `gambar_informasi` varchar(200) NOT NULL,
-  `tgl_informasi` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `tgl_informasi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_informasi`
 --
 
 INSERT INTO `tbl_informasi` (`id_informasi`, `judul`, `deskripsi`, `penulis`, `gambar_informasi`, `tgl_informasi`) VALUES
-(5, 'Tim PKM UMK Ciptakan Pop Up Craft Huruf dan Angka ke Tunagrahita di SLB Negeri Cendono Kudus', 'cdafsdghfjg', '', '14-WhatsApp Image 2023-10-07 at 22.04.36.jpeg', '0000-00-00');
+(4, 'Tim PKM-PM Universitas Muria Kudus Lolos Pendanaan dan Lakukan Bakti Pada Negeri di SLB Negeri Cendo', 'Program Kreativitas Mahasiswa merupakan salah satu program Merdeka Belajar yang dicanangkan oleh Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi yang terbagi menjadi 5 bidang yaitu PKM-K, PKM-KC, PKM-PM, PKM-P, dan PKM-T. Kampus yang dapat mengikuti program ini adalah kampus yang mengikuti kurikulum Merdeka Belajar yang dinaungi oleh Kemdikbudristek. Salah satunya adalah Universitas Muria Kudus (UMK).\r\n\r\nPada 16 Juni 2023 UMK dinyatakan lolos 58 judul proposal PKM 5 bidang, salah satunya adalah proposal tim PKM-PM yang berjudul â€œSex Education Anak Tunagrahita Melalui Media Pop Up Book yang Terintegrasi VR Video di SLBN Cendono Kudusâ€. Tim ini beranggotakan 5 mahasiswa yaitu Josephine Gabriella sebagai ketua tim, Isnaini Khalimatus Saâ€™diyah sebagai anggota tim 1, Diah Murtiningsih sebagai anggota tim 2, Ahmad Aufan Nur Hakim sebagai anggota tim 3, dan Clirista Trefilona Grasialika sebagai anggota tim 4, dan 1 dosen pembimbing yaitu Wiwit Ariyani S. H., M. Hum. Tim ini disebut juga sebagai tim Sewagati Cendono. Kegiatan ini akan berlangsung selama kurang lebih 4 bulan yaitu dari bulan Juni hingga Oktober 2023.\r\n\r\n\r\n\r\nRead more\r\ntanggal : 22 September 2023\r\nJudul : Tim PKM-PM Universitas Muria Kudus Lolos Pendanaan dan Lakukan Bakti Pada Negeri di SLB Negeri Cendono Kudus\r\n\r\nLAPORAN SINDO NEWS\r\n', '', '945-WhatsApp-Image-2023-09-22-at-17.02.36-1 (1).png', '2023-11-13 15:21:17'),
+(5, 'hvuvjhv', 'ouuhiub', '', '6-Temari.jpg', '2023-11-13 14:45:18');
 
 -- --------------------------------------------------------
 
@@ -122,17 +119,17 @@ INSERT INTO `tbl_informasi` (`id_informasi`, `judul`, `deskripsi`, `penulis`, `g
 CREATE TABLE `tbl_kategori` (
   `id_kategori` int(11) NOT NULL,
   `nama_kategori` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_kategori`
 --
 
 INSERT INTO `tbl_kategori` (`id_kategori`, `nama_kategori`) VALUES
-(3, 'Tunarungu'),
-(6, 'tunawicara'),
-(7, 'autisme'),
-(8, 'Tunadaksa');
+(7, 'Autisme'),
+(8, 'Tunagrahita'),
+(9, 'Tunadaksa'),
+(10, 'Tunanetra');
 
 -- --------------------------------------------------------
 
@@ -144,18 +141,18 @@ CREATE TABLE `tbl_kelas` (
   `id_kelas` int(11) NOT NULL,
   `id_kategori` int(11) NOT NULL,
   `nama_kelas` varchar(255) NOT NULL,
+  `id_periode` int(11) NOT NULL,
   `id_users` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_kelas`
 --
 
-INSERT INTO `tbl_kelas` (`id_kelas`, `id_kategori`, `nama_kelas`, `id_users`) VALUES
-(3, 3, 'kelas 1', 7),
-(4, 2, 'kelas 2', 9),
-(5, 7, 'Kelas 2', 9),
-(6, 8, 'Kelas 3', 7);
+INSERT INTO `tbl_kelas` (`id_kelas`, `id_kategori`, `nama_kelas`, `id_periode`, `id_users`) VALUES
+(3, 3, 'Kelas 1', 1, 7),
+(5, 6, 'Kelas 1', 1, 7),
+(6, 7, 'Kelas 1', 1, 7);
 
 -- --------------------------------------------------------
 
@@ -172,21 +169,14 @@ CREATE TABLE `tbl_konsultasi` (
   `jawaban_konsultasi` varchar(255) DEFAULT NULL,
   `id_users` int(11) NOT NULL,
   `id_wali_murid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_konsultasi`
 --
 
 INSERT INTO `tbl_konsultasi` (`id_konsultasi`, `tanggal_konsultasi`, `jam_konsultasi`, `konsultasi`, `status_konsultasi`, `jawaban_konsultasi`, `id_users`, `id_wali_murid`) VALUES
-(3, '2023-10-06', '19:38:00', 'sdasdsad', 'approve', 'iya anaknya baik', 7, 1),
-(4, '2023-10-08', '18:42:00', 'testsetestesa vdfsf', 'approve', 'dasdasdad', 7, 1),
-(5, '2023-10-13', '13:39:00', 'testes acdsf dsfdsfdsf', 'approve', 'sasdasd', 7, 1),
-(6, '2023-10-19', '11:27:00', 'sdfghj', 'diajukan', NULL, 0, 3),
-(7, '2023-10-24', '02:00:00', 'anak saya nilainya kenapa sangat turun nggih bu ', 'diajukan', NULL, 7, 1),
-(8, '2023-10-25', '09:20:00', 'BU anak saya tantrum', 'approve', 'Lebih di perhatikan lagi', 7, 5),
-(9, '2023-10-25', '09:24:00', 'BU anak saya ada masalah kesehatan suka batuk', 'approve', 'Coba diperiksakan ke dokter', 7, 5),
-(10, '2023-10-25', '09:25:00', 'Anak saya mual', 'approve', 'Mungkin belum makan', 7, 5);
+(6, '2023-11-14', '09:32:00', 'Bu mau tanya ini anak saya memiliki gejala keluhan tidak bisa mengontrol emosi\r\nkadang meledak-ledak emosinya, bagaimana ya bu?', 'approve', 'Coba tenangkan dia pakai pancingan seperti mainan dan juga hibur dia', 7, 7);
 
 -- --------------------------------------------------------
 
@@ -196,23 +186,51 @@ INSERT INTO `tbl_konsultasi` (`id_konsultasi`, `tanggal_konsultasi`, `jam_konsul
 
 CREATE TABLE `tbl_laporan_belajar` (
   `id_laporan_belajar` int(11) NOT NULL,
-  `nilai` int(11) NOT NULL,
-  `keterangan` varchar(255) DEFAULT NULL,
+  `nilai_pengetahuan` int(11) NOT NULL,
+  `deskripsi_pengetahuan` varchar(255) DEFAULT NULL,
   `id_murid` int(11) NOT NULL,
   `id_users` int(11) NOT NULL,
-  `date_penilaian` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id_kelas` int(11) DEFAULT NULL,
+  `date_penilaian` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id_mata_pelajaran` int(11) NOT NULL,
+  `nilai_ketrampilan` int(11) NOT NULL,
+  `deskripsi_ketrampilan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_laporan_belajar`
 --
 
-INSERT INTO `tbl_laporan_belajar` (`id_laporan_belajar`, `nilai`, `keterangan`, `id_murid`, `id_users`, `date_penilaian`) VALUES
-(1, 20, 'dfgsdfds', 3, 1, '2023-10-08 08:49:59'),
-(2, 90, 'sdfdsf', 4, 1, '2023-10-08 08:50:04'),
-(3, 80, 'sdfdsf', 3, 7, '2023-10-08 08:50:07'),
-(4, 20, 'dsfdsf', 3, 7, '2023-10-08 08:50:14'),
-(5, 80, 'wrwafasff', 3, 7, '2023-10-08 13:51:16');
+INSERT INTO `tbl_laporan_belajar` (`id_laporan_belajar`, `nilai_pengetahuan`, `deskripsi_pengetahuan`, `id_murid`, `id_users`, `id_kelas`, `date_penilaian`, `id_mata_pelajaran`, `nilai_ketrampilan`, `deskripsi_ketrampilan`) VALUES
+(1, 90, 'bagus', 12, 7, 6, '2023-11-14 02:39:53', 3, 90, 'bagus'),
+(2, 89, 'bagus', 12, 7, 6, '2023-11-14 02:40:23', 5, 78, 'lumayan'),
+(3, 100, 'mantap', 12, 7, 6, '2023-11-14 02:40:51', 4, 90, 'mantap'),
+(4, 77, 'lumayan', 12, 7, 6, '2023-11-14 02:41:12', 8, 70, 'cukup'),
+(5, 80, 'lumayan', 12, 7, 6, '2023-11-14 02:41:29', 9, 90, 'hebat');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_mata_pelajaran`
+--
+
+CREATE TABLE `tbl_mata_pelajaran` (
+  `id_mata_pelajaran` int(11) NOT NULL,
+  `mata_pelajaran` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_mata_pelajaran`
+--
+
+INSERT INTO `tbl_mata_pelajaran` (`id_mata_pelajaran`, `mata_pelajaran`) VALUES
+(3, 'Pendidikan Agama dan Budi Pekerti'),
+(4, 'Pendidikan Pancasila dan Kewarganegaraan'),
+(5, 'Seni Budaya'),
+(6, 'Bahasa Indonesia'),
+(7, 'Bahasa Indonesia'),
+(8, 'Matematika'),
+(9, 'Pendidikan Jasmani, Olahraga dam Kesehatan');
 
 -- --------------------------------------------------------
 
@@ -225,16 +243,15 @@ CREATE TABLE `tbl_monitoring` (
   `id_murid` int(11) NOT NULL,
   `perkembangan` varchar(255) NOT NULL,
   `id_users` int(11) NOT NULL,
-  `date_monitoring` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `date_monitoring` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_monitoring`
 --
 
 INSERT INTO `tbl_monitoring` (`id_monitoring`, `id_murid`, `perkembangan`, `id_users`, `date_monitoring`) VALUES
-(4, 7, 'anaknya sudah dapat memegang pulpen', 7, '2023-10-25 02:17:40'),
-(5, 3, 'sfasfasf', 7, '2023-10-08 13:51:07');
+(2, 12, 'anaknya sudah dapat memegang pulpen', 1, '2023-11-14 02:59:41');
 
 -- --------------------------------------------------------
 
@@ -252,21 +269,35 @@ CREATE TABLE `tbl_murid` (
   `gambar` varchar(200) NOT NULL,
   `alamat` varchar(200) NOT NULL,
   `agama` varchar(200) NOT NULL DEFAULT 'admin',
-  `status_murid` enum('diterima','tidak') NOT NULL DEFAULT 'diterima'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `status_murid` enum('menunggu hasil','diterima','tidak') NOT NULL DEFAULT 'diterima'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_murid`
 --
 
 INSERT INTO `tbl_murid` (`id_murid`, `nik`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `gambar`, `alamat`, `agama`, `status_murid`) VALUES
-(3, '324', 'sdfsdfds', 'Laki-laki', '3wsdff', '2023-09-28', '956-caravan travel.png', 'xcvdsfgdsf', 'Islam', 'diterima'),
-(4, '23432', 'tewtw', 'Laki-laki', 'jakarta', '2023-10-07', '702-back.jpg', 'dsgsdg', 'Islam', 'diterima'),
-(5, '4234', 'saya', 'Laki-laki', '212', '2023-10-24', '931-bc.jpg', 'rewrersfds', 'Islam', 'diterima'),
-(6, '12313', 'contoh', 'Laki-laki', 'contoh', '2023-10-08', '842-background.jpeg', 'gfgh', 'Islam', 'diterima'),
-(7, '3456789876', 'Alfin Erfendo', 'Laki-laki', 'Pekalongan', '2001-10-03', '465-ONG02217.JPG', 'BLORA', 'Kristen', 'diterima'),
-(8, '123456789', 'bagas', 'Laki-laki', 'kjbca', '2023-10-19', '446-ONG02218.JPG', 'sdfghjkl', 'Hindu', 'diterima'),
-(9, '1234567', 'alfin', 'Laki-laki', 'jhakjdlx', '2023-10-25', '963-SC007.jpg', 'blora', 'Kristen', 'diterima');
+(12, '567890', 'Alfin Erfendo', 'Laki-laki', 'Pekalongan', '2023-11-14', '137-Rock Lee.jpg', 'Blora', 'Kristen', 'diterima');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_periode`
+--
+
+CREATE TABLE `tbl_periode` (
+  `id_periode` int(11) NOT NULL,
+  `periode` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_periode`
+--
+
+INSERT INTO `tbl_periode` (`id_periode`, `periode`) VALUES
+(1, '2022-2023'),
+(3, '2021-2022'),
+(4, '2023-2024');
 
 -- --------------------------------------------------------
 
@@ -287,14 +318,14 @@ CREATE TABLE `tbl_profile` (
   `id_users` int(11) NOT NULL,
   `gambar_sekolah` varchar(100) NOT NULL,
   `alamat` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_profile`
 --
 
 INSERT INTO `tbl_profile` (`id_profile_sekolah`, `nama_sekolah`, `deskripsi`, `visi`, `misi`, `no_hp`, `facebook`, `email`, `instagram`, `id_users`, `gambar_sekolah`, `alamat`) VALUES
-(1, 'SD SLB NEGERI ', 'sanagat', 'Terwujudnya SMK yang Kompetitif dan Bermutu didukung Tenaga Pendidikan yang Profesional serta Menyiapkan Lulusan Berakhlak Mulia, Berdaya Saing Tinggi, Menguasi Ilmu Pengetahuan dan Teknologi.', 'Mengingkatkan sarana dan prasarana pendidikan dengan kemajuan teknologi untuk mendukung proses pembelajaran yang optimal.', '0852131231232', 'dsfdsfsdgf', 'smapekanbaru@gmail.com', 'dsfdsfds', 3, '628-sekolah.jpg', 'Jl. Sultan Syarif Qasim No.159, Rintis, Kec. Lima Puluh, Kota Pekanbaru, Riau 28156');
+(1, 'SLB NEGERI CENDONO KUDUS', 'SLB Negeri Cendono Kudus merupakan salah satu lembaga pendidikan khusus negeri yang berdomisili di kota Kudus.', 'Terwujudnya Pelayanan Bagi Peserta Didik Berkebutuhan Khusus Mencapai Profil Pelajar Pancasila Yang Beriman, Bertakwa, Berakhlak Mulia, Terampil dan Mandiri.', 'Menanamkan dan mengamalkan ajaran agama yang dianutnya, agar bijaksana dalam bersikap dan bertindak.\r\n\r\nMelaksanakan pembelajaran dan keterampilan sesuai dengan potensi peserta didik berkebutuhan khusus agar berkembang secara optimal.\r\n\r\nMenumbuhkan rasa percaya diri peserta didik dengan pembelajaran yang menyenangkan.\r\n\r\nMenumbuhkembangkan kecintaan terhadap wawasan budaya nasional.', '0852131231232', 'dsfdsfsdgf', 'slbnegericendonokudus@gmail.com', 'dsfdsfds', 1, '628-sekolah.jpg', 'Jl. Madu No 01 RT 05 RW 01 , Cendono, Kec. Dawe, Kab. Kudus Prov. Jawa Tengah');
 
 -- --------------------------------------------------------
 
@@ -312,7 +343,7 @@ CREATE TABLE `tbl_users` (
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `status` enum('aktiv','non-aktiv') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_users`
@@ -321,7 +352,7 @@ CREATE TABLE `tbl_users` (
 INSERT INTO `tbl_users` (`id_users`, `nama_users`, `alamat_users`, `email_users`, `no_telp_users`, `hak_akses`, `username`, `password`, `status`) VALUES
 (1, 'admin', 'admin', 'admin@gmail.com', '56464', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'aktiv'),
 (2, 'admin2 sad sadad', 'admin2', 'admin2@gmail.com', '38924829', 'admin', 'admin2', 'c84258e9c39059a89ab77d846ddab909', 'aktiv'),
-(3, 'ay', 'Kepala Sekolah', 'kepalasekolah@gmail.com', '123445667788', 'kepala sekolah', 'kepalasekolah', 'ad9e9366bd65e665fa808da635512230', 'aktiv'),
+(3, 'Kepala sekolah', 'Kepala Sekolah', 'kepalasekolah@gmail.com', '08888838383393', 'kepala sekolah', 'kepalasekolah', 'ad9e9366bd65e665fa808da635512230', 'aktiv'),
 (5, 'test', 'test', 'test@gmail.com', '453534345', 'admin', 'test', '098f6bcd4621d373cade4e832627b4f6', 'non-aktiv'),
 (6, 'update', 'yogyakarta', 'test@gmail.com', '85912628', 'admin', 'dsfdsf', 'b0dc8efe2d5326a92982ce4e6535c97e', 'non-aktiv'),
 (7, 'guru', 'teste', 'guru@gmail.com', '983243289', 'guru', 'guru', '77e69c137812518e359196bb2f5e9bb9', 'aktiv'),
@@ -346,183 +377,263 @@ CREATE TABLE `tbl_wali_murid` (
   `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
   `id_murid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_wali_murid`
 --
 
 INSERT INTO `tbl_wali_murid` (`id_wali_murid`, `nama_ayah`, `nama_ibu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `alamat`, `no_telp`, `email`, `username`, `password`, `id_murid`) VALUES
-(1, 'Herman William Daendles', 'Wilhelmina', 'Gubernur Jendral Hindia Belanda', 'Ratu Belanda', 'Belanda', '08121212121212', 'waliamdaendles@gmail.com', 'walimurid', '7881e048251930c056418ff4c64ec86f', 3),
-(2, 'sayaA', 'sayaA', 'saya', 'saya', 'saya', '23423432', 'saya@gmail.com', 'saya', '20c1a26a55039b30866c9d0aa51953ca', 5),
-(3, 'sdfghjk', 'dfghjk', 'fewhj', 'sdfghj', 'wertyuj', '09876543', 'qwertyujk@gmail.com', 'bagas', 'ee776a18253721efe8a62e4abd29dc47', 8),
-(4, 'Dani', 'Yuli', 'kjndknf', ',fjsdkjsdkjn', 'Blora', '0888888888', 'danidknkc@gmail.com', 'dani', '55b7e8b895d047537e672250dd781555', 9),
-(5, 'alfin', 'dfghj', 'fghj', 'ghj', 'fgh', 'fgh', 'alfinerfendo@gmail.com', 'alfin', '6ff92dee2a93081f0192781f156fa0e9', 7);
+(7, 'Tommy', 'Yuli', 'Gubernur', 'Ibu rumah tangga', 'Blora', '082227168317', 'alfinerfendo@gmail.com', 'alfin', '6ff92dee2a93081f0192781f156fa0e9', 12);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `tbl_alur`
+-- Indexes for table `tbl_alur`
 --
 ALTER TABLE `tbl_alur`
   ADD PRIMARY KEY (`id_alur`);
 
 --
--- Indeks untuk tabel `tbl_detail_kelas`
+-- Indexes for table `tbl_detail_kelas`
 --
 ALTER TABLE `tbl_detail_kelas`
-  ADD PRIMARY KEY (`id_detail_kelas`);
+  ADD PRIMARY KEY (`id_detail_kelas`),
+  ADD KEY `id_kelas` (`id_kelas`),
+  ADD KEY `id_murid` (`id_murid`),
+  ADD KEY `id_users` (`id_users`);
 
 --
--- Indeks untuk tabel `tbl_galeri`
+-- Indexes for table `tbl_galeri`
 --
 ALTER TABLE `tbl_galeri`
   ADD PRIMARY KEY (`id_galeri`);
 
 --
--- Indeks untuk tabel `tbl_informasi`
+-- Indexes for table `tbl_informasi`
 --
 ALTER TABLE `tbl_informasi`
   ADD PRIMARY KEY (`id_informasi`);
 
 --
--- Indeks untuk tabel `tbl_kategori`
+-- Indexes for table `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `tbl_kelas`
+-- Indexes for table `tbl_kelas`
 --
 ALTER TABLE `tbl_kelas`
-  ADD PRIMARY KEY (`id_kelas`);
+  ADD PRIMARY KEY (`id_kelas`),
+  ADD KEY `id_periode` (`id_periode`),
+  ADD KEY `id_users` (`id_users`);
 
 --
--- Indeks untuk tabel `tbl_konsultasi`
+-- Indexes for table `tbl_konsultasi`
 --
 ALTER TABLE `tbl_konsultasi`
-  ADD PRIMARY KEY (`id_konsultasi`);
+  ADD PRIMARY KEY (`id_konsultasi`),
+  ADD KEY `id_users` (`id_users`),
+  ADD KEY `id_wali_murid` (`id_wali_murid`);
 
 --
--- Indeks untuk tabel `tbl_laporan_belajar`
+-- Indexes for table `tbl_laporan_belajar`
 --
 ALTER TABLE `tbl_laporan_belajar`
-  ADD PRIMARY KEY (`id_laporan_belajar`);
+  ADD PRIMARY KEY (`id_laporan_belajar`),
+  ADD KEY `id_users` (`id_users`),
+  ADD KEY `id_murid` (`id_murid`),
+  ADD KEY `id_mata_pelajaran` (`id_mata_pelajaran`);
 
 --
--- Indeks untuk tabel `tbl_monitoring`
+-- Indexes for table `tbl_mata_pelajaran`
+--
+ALTER TABLE `tbl_mata_pelajaran`
+  ADD PRIMARY KEY (`id_mata_pelajaran`);
+
+--
+-- Indexes for table `tbl_monitoring`
 --
 ALTER TABLE `tbl_monitoring`
-  ADD PRIMARY KEY (`id_monitoring`);
+  ADD PRIMARY KEY (`id_monitoring`),
+  ADD KEY `id_murid` (`id_murid`),
+  ADD KEY `id_users` (`id_users`);
 
 --
--- Indeks untuk tabel `tbl_murid`
+-- Indexes for table `tbl_murid`
 --
 ALTER TABLE `tbl_murid`
   ADD PRIMARY KEY (`id_murid`);
 
 --
--- Indeks untuk tabel `tbl_profile`
+-- Indexes for table `tbl_periode`
+--
+ALTER TABLE `tbl_periode`
+  ADD PRIMARY KEY (`id_periode`);
+
+--
+-- Indexes for table `tbl_profile`
 --
 ALTER TABLE `tbl_profile`
   ADD PRIMARY KEY (`id_profile_sekolah`),
   ADD KEY `kd_admin` (`id_users`);
 
 --
--- Indeks untuk tabel `tbl_users`
+-- Indexes for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
   ADD PRIMARY KEY (`id_users`);
 
 --
--- Indeks untuk tabel `tbl_wali_murid`
+-- Indexes for table `tbl_wali_murid`
 --
 ALTER TABLE `tbl_wali_murid`
-  ADD PRIMARY KEY (`id_wali_murid`);
+  ADD PRIMARY KEY (`id_wali_murid`),
+  ADD KEY `tbl_wali_murid_ibfk_1` (`id_murid`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_alur`
+-- AUTO_INCREMENT for table `tbl_alur`
 --
 ALTER TABLE `tbl_alur`
-  MODIFY `id_alur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_alur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_detail_kelas`
+-- AUTO_INCREMENT for table `tbl_detail_kelas`
 --
 ALTER TABLE `tbl_detail_kelas`
-  MODIFY `id_detail_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_detail_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_galeri`
+-- AUTO_INCREMENT for table `tbl_galeri`
 --
 ALTER TABLE `tbl_galeri`
-  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_informasi`
+-- AUTO_INCREMENT for table `tbl_informasi`
 --
 ALTER TABLE `tbl_informasi`
   MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_kategori`
+-- AUTO_INCREMENT for table `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_kelas`
+-- AUTO_INCREMENT for table `tbl_kelas`
 --
 ALTER TABLE `tbl_kelas`
   MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_konsultasi`
+-- AUTO_INCREMENT for table `tbl_konsultasi`
 --
 ALTER TABLE `tbl_konsultasi`
-  MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_laporan_belajar`
+-- AUTO_INCREMENT for table `tbl_laporan_belajar`
 --
 ALTER TABLE `tbl_laporan_belajar`
   MODIFY `id_laporan_belajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_monitoring`
+-- AUTO_INCREMENT for table `tbl_mata_pelajaran`
+--
+ALTER TABLE `tbl_mata_pelajaran`
+  MODIFY `id_mata_pelajaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `tbl_monitoring`
 --
 ALTER TABLE `tbl_monitoring`
-  MODIFY `id_monitoring` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_monitoring` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_murid`
+-- AUTO_INCREMENT for table `tbl_murid`
 --
 ALTER TABLE `tbl_murid`
-  MODIFY `id_murid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_murid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_profile`
+-- AUTO_INCREMENT for table `tbl_periode`
+--
+ALTER TABLE `tbl_periode`
+  MODIFY `id_periode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_profile`
 --
 ALTER TABLE `tbl_profile`
   MODIFY `id_profile_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_users`
+-- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
   MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_wali_murid`
+-- AUTO_INCREMENT for table `tbl_wali_murid`
 --
 ALTER TABLE `tbl_wali_murid`
-  MODIFY `id_wali_murid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_wali_murid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `tbl_detail_kelas`
+--
+ALTER TABLE `tbl_detail_kelas`
+  ADD CONSTRAINT `tbl_detail_kelas_ibfk_1` FOREIGN KEY (`id_kelas`) REFERENCES `tbl_kelas` (`id_kelas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_detail_kelas_ibfk_2` FOREIGN KEY (`id_murid`) REFERENCES `tbl_murid` (`id_murid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_detail_kelas_ibfk_3` FOREIGN KEY (`id_users`) REFERENCES `tbl_users` (`id_users`);
+
+--
+-- Ketidakleluasaan untuk tabel `tbl_kelas`
+--
+ALTER TABLE `tbl_kelas`
+  ADD CONSTRAINT `tbl_kelas_ibfk_1` FOREIGN KEY (`id_periode`) REFERENCES `tbl_periode` (`id_periode`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_kelas_ibfk_2` FOREIGN KEY (`id_users`) REFERENCES `tbl_users` (`id_users`);
+
+--
+-- Ketidakleluasaan untuk tabel `tbl_konsultasi`
+--
+ALTER TABLE `tbl_konsultasi`
+  ADD CONSTRAINT `tbl_konsultasi_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `tbl_users` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_konsultasi_ibfk_2` FOREIGN KEY (`id_wali_murid`) REFERENCES `tbl_wali_murid` (`id_wali_murid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tbl_laporan_belajar`
+--
+ALTER TABLE `tbl_laporan_belajar`
+  ADD CONSTRAINT `tbl_laporan_belajar_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `tbl_users` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_laporan_belajar_ibfk_2` FOREIGN KEY (`id_murid`) REFERENCES `tbl_murid` (`id_murid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_laporan_belajar_ibfk_3` FOREIGN KEY (`id_mata_pelajaran`) REFERENCES `tbl_mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tbl_monitoring`
+--
+ALTER TABLE `tbl_monitoring`
+  ADD CONSTRAINT `tbl_monitoring_ibfk_1` FOREIGN KEY (`id_murid`) REFERENCES `tbl_murid` (`id_murid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_monitoring_ibfk_2` FOREIGN KEY (`id_users`) REFERENCES `tbl_users` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tbl_wali_murid`
+--
+ALTER TABLE `tbl_wali_murid`
+  ADD CONSTRAINT `tbl_wali_murid_ibfk_1` FOREIGN KEY (`id_murid`) REFERENCES `tbl_murid` (`id_murid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
