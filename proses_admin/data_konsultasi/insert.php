@@ -11,6 +11,7 @@ if (isset($_POST['insert'])) {
   if(!$result) {
     die("Query Failed.");
   }
+  
 
   $_SESSION['message'] = 'Insert Data Successfully';
   $_SESSION['message_type'] = 'success';

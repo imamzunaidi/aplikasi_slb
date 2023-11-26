@@ -92,7 +92,7 @@ include("../include/koneksi.php");
             <?php }else if($_SESSION['hak_akses'] == 'guru'){ ?>
               <ul class="sidebar-menu mt-3">
                 <li class="menu-header">Dashboard</li>
-                <li><a class="nav-link" href="<?= $base_url ?>admin/dashboard.php"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+                <li><a class="nav-link" href="<?= $base_url ?>guru/dashboard.php"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
                 <li class="nav-item dropdown">
                   <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Data Master</span></a>
                   <ul class="dropdown-menu">

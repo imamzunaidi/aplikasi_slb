@@ -47,7 +47,7 @@
 
 <script>
   $(document).ready(function(){
-      $('#summernote').summernote({
+      $('.summernote').summernote({
           height: "200px",
           toolbar:[
               ['basic', ['style', 'fontname','fontsize']],

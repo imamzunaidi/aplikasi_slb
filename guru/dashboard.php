@@ -10,6 +10,7 @@ include('../template/sidebar.php');
 error_reporting(0);
  
 $id_users = $_SESSION['id_users'];
+$month  = date('m');
 ?>
 
 
@@ -26,6 +27,20 @@ $id_users = $_SESSION['id_users'];
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <strong>Hallo !!</strong> Selamat Datang Admin
                     </div>
+            <?php } ?>
+
+            <?php 
+                $query_laporan = "SELECT * FROM tbl_laporan_belajar WHERE MONTH(date_penilaian) = '$month' and id_users = $id_users";
+                $result_laporan = mysqli_query($conn, $query_laporan);
+                $jumlah_laporan = mysqli_num_rows($result_laporan); 
+         
+                ?>
+
+            <?php if ($jumlah_laporan == 0) { ?>
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Peringatan !!</strong> Segera lakukan penilaian pada bulan ini !!!
+                </div>
             <?php } ?>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
