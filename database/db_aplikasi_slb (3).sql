@@ -64,8 +64,12 @@ CREATE TABLE `tbl_detail_kelas` (
 --
 
 INSERT INTO `tbl_detail_kelas` (`id_detail_kelas`, `id_murid`, `id_kelas`, `id_users`) VALUES
+<<<<<<< HEAD:database/db_aplikasi_slb (3).sql
 (22, 12, 6, 1),
 (23, 13, 6, 1);
+=======
+(22, 12, 6, 1);
+>>>>>>> b5d8c09589ea7925f497dfac6313c575c3a91a06:database/db_aplikasi_slb (2).sql
 
 -- --------------------------------------------------------
 
@@ -207,6 +211,7 @@ INSERT INTO `tbl_kelas` (`id_kelas`, `id_kategori`, `nama_kelas`, `id_periode`, 
 (3, 3, 'Kelas 1', 1, 7),
 (5, 6, 'Kelas 1', 1, 7),
 (6, 7, 'Kelas 1', 1, 7);
+<<<<<<< HEAD:database/db_aplikasi_slb (3).sql
 
 -- --------------------------------------------------------
 
@@ -226,6 +231,8 @@ CREATE TABLE `tbl_keterampilan` (
 INSERT INTO `tbl_keterampilan` (`id_keterampilan`, `nama_keterampilan`) VALUES
 (5, 'tes'),
 (6, 'hbjhvkhvkh');
+=======
+>>>>>>> b5d8c09589ea7925f497dfac6313c575c3a91a06:database/db_aplikasi_slb (2).sql
 
 -- --------------------------------------------------------
 
@@ -249,9 +256,13 @@ CREATE TABLE `tbl_konsultasi` (
 --
 
 INSERT INTO `tbl_konsultasi` (`id_konsultasi`, `tanggal_konsultasi`, `jam_konsultasi`, `konsultasi`, `status_konsultasi`, `jawaban_konsultasi`, `id_users`, `id_wali_murid`) VALUES
+<<<<<<< HEAD:database/db_aplikasi_slb (3).sql
 (8, '2023-11-25', '21:15:00', 'sadsd', 'approve', 'sadsdadasd', 7, 8),
 (9, '2023-11-27', '01:07:00', 'ga tau pengen beli truk\r\n', 'approve', 'Oke beli', 7, 9),
 (10, '2023-11-27', '20:34:00', 'Apa makanan yang bergizi tinggi ya bu?\r\n', 'approve', 'Makan seperti sop dan sayuran hijau dan juga jangan lupa makan buah\r\n', 7, 8);
+=======
+(8, '2023-11-25', '21:15:00', 'sadsd', 'approve', 'sadsdadasd', 7, 8);
+>>>>>>> b5d8c09589ea7925f497dfac6313c575c3a91a06:database/db_aplikasi_slb (2).sql
 
 -- --------------------------------------------------------
 
@@ -277,9 +288,13 @@ CREATE TABLE `tbl_laporan_belajar` (
 --
 
 INSERT INTO `tbl_laporan_belajar` (`id_laporan_belajar`, `nilai_pengetahuan`, `deskripsi_pengetahuan`, `id_murid`, `id_users`, `id_kelas`, `date_penilaian`, `id_mata_pelajaran`, `nilai_ketrampilan`, `deskripsi_ketrampilan`) VALUES
+<<<<<<< HEAD:database/db_aplikasi_slb (3).sql
 (7, 80, 'test', 12, 7, 6, '2023-09-25 13:21:44', 3, 70, 'test'),
 (8, 90, 'hebat', 12, 1, 6, '2023-11-26 17:57:30', 4, 89, 'mantap'),
 (9, 90, 'mantap', 12, 7, 6, '2023-11-28 03:34:08', 8, 89, 'hebat');
+=======
+(7, 80, 'test', 12, 7, 6, '2023-09-25 13:21:44', 3, 70, 'test');
+>>>>>>> b5d8c09589ea7925f497dfac6313c575c3a91a06:database/db_aplikasi_slb (2).sql
 
 -- --------------------------------------------------------
 
@@ -324,6 +339,7 @@ CREATE TABLE `tbl_monitoring` (
 --
 
 INSERT INTO `tbl_monitoring` (`id_monitoring`, `id_murid`, `perkembangan`, `id_users`, `date_monitoring`) VALUES
+<<<<<<< HEAD:database/db_aplikasi_slb (3).sql
 (4, 12, 'anaknya sudah dapat memegang pulpen', 7, '2023-11-26 17:49:59'),
 (5, 12, 'anaknya sudah dapat memegang pulpen', 1, '2023-11-26 17:52:17'),
 (6, 12, 'hebat', 1, '2023-11-26 18:04:12'),
@@ -333,6 +349,9 @@ INSERT INTO `tbl_monitoring` (`id_monitoring`, `id_murid`, `perkembangan`, `id_u
 (10, 12, 'tes', 1, '2023-11-28 03:31:37'),
 (11, 12, 'anaknya hebat', 7, '2023-11-28 03:34:32'),
 (12, 12, 'anaknya hebat', 7, '2023-12-06 04:42:51');
+=======
+(3, 12, 'dsfdsfdsfdsfdsf', 7, '2023-11-25 13:18:25');
+>>>>>>> b5d8c09589ea7925f497dfac6313c575c3a91a06:database/db_aplikasi_slb (2).sql
 
 -- --------------------------------------------------------
 
@@ -358,8 +377,12 @@ CREATE TABLE `tbl_murid` (
 --
 
 INSERT INTO `tbl_murid` (`id_murid`, `nik`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `gambar`, `alamat`, `agama`, `status_murid`) VALUES
+<<<<<<< HEAD:database/db_aplikasi_slb (3).sql
 (12, '567890', 'Alfin Erfendo', 'Laki-laki', 'Pekalongan', '2023-11-14', '137-Rock Lee.jpg', 'Blora', 'Kristen', 'diterima'),
 (13, '201953017', 'Intan Siti Muani', 'Perempuan', 'Sebelat', '2023-11-27', '529-Hinata.jpg', 'Sebelat, Begkulu', 'Islam', 'diterima');
+=======
+(12, '567890', 'Alfin Erfendo', 'Laki-laki', 'Pekalongan', '2023-11-14', '137-Rock Lee.jpg', 'Blora', 'Kristen', 'diterima');
+>>>>>>> b5d8c09589ea7925f497dfac6313c575c3a91a06:database/db_aplikasi_slb (2).sql
 
 -- --------------------------------------------------------
 
@@ -490,7 +513,11 @@ CREATE TABLE `tbl_users` (
 
 INSERT INTO `tbl_users` (`id_users`, `nama_users`, `alamat_users`, `email_users`, `no_telp_users`, `hak_akses`, `username`, `password`, `status`) VALUES
 (1, 'admin', 'admin', 'admin@gmail.com', '56464', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'aktiv'),
+<<<<<<< HEAD:database/db_aplikasi_slb (3).sql
 (2, 'admin2 sad sadad', 'admin2', 'admin2@gmail.com', '38924829', 'admin', 'admin2', 'c84258e9c39059a89ab77d846ddab909', 'non-aktiv'),
+=======
+(2, 'admin2 sad sadad', 'admin2', 'admin2@gmail.com', '38924829', 'admin', 'admin2', 'c84258e9c39059a89ab77d846ddab909', 'aktiv'),
+>>>>>>> b5d8c09589ea7925f497dfac6313c575c3a91a06:database/db_aplikasi_slb (2).sql
 (3, 'Kepala sekolah', 'Kepala Sekolah', 'kepalasekolah@gmail.com', '08888838383393', 'kepala sekolah', 'kepalasekolah', 'ad9e9366bd65e665fa808da635512230', 'aktiv'),
 (5, 'test', 'test', 'test@gmail.com', '453534345', 'admin', 'test', '098f6bcd4621d373cade4e832627b4f6', 'non-aktiv'),
 (6, 'update', 'yogyakarta', 'test@gmail.com', '85912628', 'admin', 'dsfdsf', 'b0dc8efe2d5326a92982ce4e6535c97e', 'non-aktiv'),
@@ -673,7 +700,11 @@ ALTER TABLE `tbl_alur`
 -- AUTO_INCREMENT for table `tbl_detail_kelas`
 --
 ALTER TABLE `tbl_detail_kelas`
+<<<<<<< HEAD:database/db_aplikasi_slb (3).sql
   MODIFY `id_detail_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+=======
+  MODIFY `id_detail_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+>>>>>>> b5d8c09589ea7925f497dfac6313c575c3a91a06:database/db_aplikasi_slb (2).sql
 
 --
 -- AUTO_INCREMENT for table `tbl_galeri`
