@@ -64,7 +64,7 @@ include('../include/koneksi.php');
                                         <label for="username">Username</label>
                                         <input id="username" type="text" class="form-control" name="username" tabindex="1" required autofocus>
                                         <div class="invalid-feedback">
-                                            Please fill in your Username
+                                            Tolong Isi Username
                                         </div>
                                     </div>
 
@@ -74,7 +74,7 @@ include('../include/koneksi.php');
                                         </div>
                                         <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
                                         <div class="invalid-feedback">
-                                            please fill in your password
+                                            Tolong Isi password
                                         </div>
                                     </div>
 
@@ -83,7 +83,7 @@ include('../include/koneksi.php');
                                             Login
                                         </button>
                                         <div class="text-center mt-3">
-                                            <a href="<?= base_url()?>">Halaman Utama</a>
+                                            <a href="<?= 'base_url'()?>">Halaman Utama</a>
                                         </div>
                                     </div>
                                 </form>

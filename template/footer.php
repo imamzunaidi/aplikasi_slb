@@ -1,11 +1,9 @@
 
         <footer class="main-footer">
             <div class="footer-left">
-                Copyright &copy; 2021 <div class="bullet"></div> Aplikasi Sekolah Luar Biasa
+                Copyright &copy; 2023 <div class="bullet"></div> Aplikasi Sekolah Luar Biasa
             </div>
-            <div class="footer-right">
-                2.3.0
-            </div>
+           
         </footer>
     </div>
   </div>
@@ -47,7 +45,7 @@
 
 <script>
   $(document).ready(function(){
-      $('#summernote').summernote({
+      $('.summernote').summernote({
           height: "200px",
           toolbar:[
               ['basic', ['style', 'fontname','fontsize']],

@@ -46,7 +46,7 @@ $id_wali_murid = $_SESSION['id_wali_murid'];
                   <?php if( $id_wali_murid  == ''){?>
                  
                   <?php }else{ ?>
-                    <a class="ready-btn right-btn page-scroll" data-toggle="modal" data-target="#myModal" href="#services">Isi Quisioner</a>
+                    <a class="ready-btn right-btn page-scroll" data-toggle="modal" data-target="#myModal" href="#services">Isi Kuesioner</a>
                   <?php }?>
                 </div>
               </div>
@@ -74,7 +74,7 @@ $id_wali_murid = $_SESSION['id_wali_murid'];
                   <?php if( $id_wali_murid  == ''){?>
                  
                   <?php }else{ ?>
-                    <a class="ready-btn right-btn page-scroll" data-toggle="modal" data-target="#myModal" href="#services">Isi Quisioner</a>
+                    <a class="ready-btn right-btn page-scroll" data-toggle="modal" data-target="#myModal" href="#services">Isi Kuesioner</a>
                   <?php }?>
                 </div>
               </div>
@@ -102,7 +102,7 @@ $id_wali_murid = $_SESSION['id_wali_murid'];
                   <?php if( $id_wali_murid  == ''){?>
                  
                   <?php }else{ ?>
-                    <a class="ready-btn right-btn page-scroll" data-toggle="modal" data-target="#myModal" href="#services">Isi Quisioner</a>
+                    <a class="ready-btn right-btn page-scroll" data-toggle="modal" data-target="#myModal" href="#services">Isi Kuesioner</a>
                   <?php }?>
                 </div>
               </div>
@@ -396,149 +396,50 @@ $id_wali_murid = $_SESSION['id_wali_murid'];
 
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Isi Quisioner</h4>
+          <h4 class="modal-title">Isi Kuesioner</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <form action="<?= $base_url ?>proses_walimurid/quisioner/insert.php" method="post" enctype='multipart/form-data'>
       <div class="modal-body">
+      <?php
+        $query = "SELECT * FROM tbl_pertanyaan";
+        $pertanyaan = mysqli_query($conn, $query);    
+        $no = 1;          
+        while($row = mysqli_fetch_assoc($pertanyaan)) { ?>
         <div class="form-group">
-            <label for="">Apakah sistem monitoring sangat berguna untuk memantau perkembangan belajar ABK?</label>
+          
+            <label for=""><?= $row['pertanyaan']?></label>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q1" value = "5">Sangat Setuju
+                <input type="radio" class="form-check-input" name="q<?= $row['id_pertanyaan']?>" required value ="5">Sangat Setuju
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q1" value = "4">Setuju
+                <input type="radio" class="form-check-input" name="q<?= $row['id_pertanyaan']?>" required value ="4">Setuju
               </label>
             </div>
             <div class="form-check disabled">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q1" value = "3">Netral
+                <input type="radio" class="form-check-input" name="q<?= $row['id_pertanyaan']?>" required value ="3">Netral
               </label>
             </div>  
             <div class="form-check disabled">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q1" value = "2">Tidak Setuju
+                <input type="radio" class="form-check-input" name="q<?= $row['id_pertanyaan']?>" required value ="2">Tidak Setuju
               </label>
             </div>  
             <div class="form-check disabled">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q1" value = "1">Sangat Tidak Setuju
+                <input type="radio" class="form-check-input" name="q<?= $row['id_pertanyaan']?>" required value ="1">Sangat Tidak Setuju
               </label>
             </div>  
             <br>
-            <label for="">Apakah sistem ini membantu memberikan informasi mengenai SLB N Cendono?</label>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q2" value = "5">Sangat Setuju
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q2" value = "4">Setuju
-              </label>
-            </div>
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q2" value = "3">Netral
-              </label>
-            </div>  
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q2" value = "2">Tidak Setuju
-              </label>
-            </div>  
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q2" value = "1">Sangat Tidak Setuju
-              </label>
-            </div> 
-            <br>
-            <label for="">Bagaimana dengan desain dari sistemnya apakah mudah dipahami?</label>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q3" value = "5">Sangat Setuju
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q3" value = "4">Setuju
-              </label>
-            </div>
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q3" value = "3">Netral
-              </label>
-            </div>  
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q3" value = "2">Tidak Setuju
-              </label>
-            </div>  
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q3" value = "1">Sangat Tidak Setuju
-              </label>
-            </div>  
-            <br>
-            <label for="">Seberapa setuju mengenai pentingnya konsultasi pada sistem?</label>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q4" value = "5">Sangat Setuju
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q4" value = "4">Setuju
-              </label>
-            </div>
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q4" value = "3">Netral
-              </label>
-            </div>  
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q4" value = "2">Tidak Setuju
-              </label>
-            </div>  
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q4" value = "1">Sangat Tidak Setuju
-              </label>
-            </div>  
-            <br>
-            <label for="">Bagaimana penerapan sistem ini pada SLB apakah sangat membantu?</label>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q5" value = "5">Sangat Setuju
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q5" value = "4">Setuju
-              </label>
-            </div>
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q5" value = "3">Netral
-              </label>
-            </div>  
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q5" value = "2">Tidak Setuju
-              </label>
-            </div>  
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="q5" value = "1">Sangat Tidak Setuju
-              </label>
-            </div>  
-          </div>
-           
+
       
+        </div>
+
+        <?php } ?>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

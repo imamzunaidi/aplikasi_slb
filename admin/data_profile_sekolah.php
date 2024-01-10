@@ -54,11 +54,11 @@ $id_users = $_SESSION['id_users'];
                         </div>
                         <div class="form-group">
                             <label for="">Visi</label>
-                            <input type="text" name = "visi" class = "form-control" value = "<?= $row['visi']?>" required>
+                            <textarea name = "visi" class = "form-control summernote" id = "" value = "<?= $row['visi']?>" required><?= $row['visi']?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Misi</label>
-                            <textarea name = "misi" class = "form-control" value = "<?= $row['misi']?>" required><?= $row['misi']?></textarea>
+                            <textarea name = "misi" class = "form-control summernote" id = "" value = "<?= $row['misi']?>" required><?= $row['misi']?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Email</label>

@@ -43,7 +43,7 @@ include("../include/koneksi.php");
             <a href="" class = "">Aplikasi SLB</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">RA</a>
+            <a href="index.html">SLB</a>
           </div>
           <!-- Sidebar Untuk Admin -->
             <?php if($_SESSION['hak_akses'] == 'admin'){?>
@@ -77,22 +77,24 @@ include("../include/koneksi.php");
                     <li><a class="nav-link" href="<?= $base_url ?>admin/data_kelas.php">Data Kelas</a></li>
                     <li><a class="nav-link" href="<?= $base_url ?>admin/data_mata_pelajaran.php">Data Mata Pelajaran</a></li>
                     <li><a class="nav-link" href="<?= $base_url ?>admin/data_kategori.php">Data Kategori</a></li>
-                 
+                    <li><a class="nav-link" href="<?= $base_url ?>admin/data_pertanyaan.php">Data Pertanyaan</a></li>
                   </ul>
                 </li>
 
                 <li class="menu-header">Data Transaksi</li>
                 <li ><a class="nav-link" href="<?= $base_url?>admin/data_konsultasi.php"><i class="fas fa-calendar-check"></i> <span>Data Konsultasi</span></a></li>
                 <li ><a class="nav-link" href="<?= $base_url?>admin/data_monitoring.php"><i class="fas fa-calendar-check"></i> <span>Data Monitoring</span></a></li>
-                <li ><a class="nav-link" href="<?= $base_url?>admin/data_quisioner.php"><i class="fas fa-calendar-check"></i> <span>Data Quisioner</span></a></li>
+                <li ><a class="nav-link" href="<?= $base_url?>admin/data_quisioner.php"><i class="fas fa-calendar-check"></i> <span>Data Kuesioner</span></a></li>
                 <li class="menu-header">Data Laporan</li>
                 <li ><a class="nav-link" href="<?= $base_url?>admin/laporan_belajar.php"><i class="fas fa-calendar-check"></i> <span>Data Laporan Belajar</span></a></li>
+                <li ><a class="nav-link" href="<?= $base_url?>admin/data_keterampilan.php"><i class="fas fa-calendar-check"></i> <span>Data Keterampilan</span></a></li>
+              </ul>
               </ul>
 
             <?php }else if($_SESSION['hak_akses'] == 'guru'){ ?>
               <ul class="sidebar-menu mt-3">
                 <li class="menu-header">Dashboard</li>
-                <li><a class="nav-link" href="<?= $base_url ?>admin/dashboard.php"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+                <li><a class="nav-link" href="<?= $base_url ?>guru/dashboard.php"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
                 <li class="nav-item dropdown">
                   <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Data Master</span></a>
                   <ul class="dropdown-menu">

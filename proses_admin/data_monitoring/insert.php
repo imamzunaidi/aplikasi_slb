@@ -40,7 +40,10 @@ if (isset($_POST['insert'])) {
 
   $response = curl_exec($curl);
 
+  // echo curl_errno($curl);
+  // echo curl_error($curl);
   curl_close($curl);
+  // die();
 
 
   $query = "INSERT INTO `tbl_monitoring`(`id_murid`, `perkembangan`, `id_users`) VALUES ('$id_murid','$perkembangan','$id_users')";
